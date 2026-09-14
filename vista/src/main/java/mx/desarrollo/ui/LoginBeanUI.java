@@ -51,26 +51,13 @@ public class LoginBeanUI implements Serializable{
         }
     }
 
-    
     /* getters y setters*/
 
     public Usuario getUsuario() {
         return usuario;
     }
-
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
-    
-    
-    
-    
-    
-    
-    
 
-    
-
-    
 }
