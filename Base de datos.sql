@@ -15,14 +15,17 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+CREATE SCHEMA IF NOT EXISTS `SAUAP` DEFAULT CHARACTER SET utf8 ;
+USE `SAUAP` ;
+
 --
 -- Table structure for table `asignacion`
 --
 
-DROP TABLE IF EXISTS `asignacion`;
+DROP TABLE IF EXISTS `SAUAP`.`asignacion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `asignacion` (
+CREATE TABLE `SAUAP`.`asignacion` (
   `id_asignacion` int NOT NULL AUTO_INCREMENT,
   `id_profesor` int NOT NULL,
   `grupo` int NOT NULL,
@@ -39,19 +42,19 @@ CREATE TABLE `asignacion` (
 -- Dumping data for table `asignacion`
 --
 
-LOCK TABLES `asignacion` WRITE;
-/*!40000 ALTER TABLE `asignacion` DISABLE KEYS */;
-/*!40000 ALTER TABLE `asignacion` ENABLE KEYS */;
+LOCK TABLES `SAUAP`.`asignacion` WRITE;
+/*!40000 ALTER TABLE `SAUAP`.`asignacion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SAUAP`.`asignacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Table structure for table `horario`
 --
 
-DROP TABLE IF EXISTS `horario`;
+DROP TABLE IF EXISTS `SAUAP`.`horario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `horario` (
+CREATE TABLE `SAUAP`.`horario` (
   `id_horario` int NOT NULL AUTO_INCREMENT,
   `dia` varchar(50) DEFAULT NULL,
   `hora_inicio` int NOT NULL,
@@ -68,19 +71,19 @@ CREATE TABLE `horario` (
 -- Dumping data for table `horario`
 --
 
-LOCK TABLES `horario` WRITE;
-/*!40000 ALTER TABLE `horario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `horario` ENABLE KEYS */;
+LOCK TABLES `SAUAP`.`horario` WRITE;
+/*!40000 ALTER TABLE `SAUAP`.`horario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SAUAP`.`horario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Table structure for table `profesor`
 --
 
-DROP TABLE IF EXISTS `profesor`;
+DROP TABLE IF EXISTS `SAUAP`.`profesor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `profesor` (
+CREATE TABLE `SAUAP`.`profesor` (
   `id_profesor` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `apellido_pat` varchar(50) NOT NULL,
@@ -95,19 +98,19 @@ CREATE TABLE `profesor` (
 -- Dumping data for table `profesor`
 --
 
-LOCK TABLES `profesor` WRITE;
-/*!40000 ALTER TABLE `profesor` DISABLE KEYS */;
-/*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
+LOCK TABLES `SAUAP`.`profesor` WRITE;
+/*!40000 ALTER TABLE `SAUAP`.`profesor` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SAUAP`.`profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Table structure for table `unidad_de_aprendizaje`
 --
 
-DROP TABLE IF EXISTS `unidad_de_aprendizaje`;
+DROP TABLE IF EXISTS `SAUAP`.`unidad_de_aprendizaje`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `unidad_de_aprendizaje` (
+CREATE TABLE `SAUAP`.`unidad_de_aprendizaje` (
   `id_ua` int NOT NULL AUTO_INCREMENT,
   `nombre_ua` varchar(50) NOT NULL,
   `horas_clase` int DEFAULT NULL,
@@ -124,19 +127,19 @@ CREATE TABLE `unidad_de_aprendizaje` (
 -- Dumping data for table `unidad_de_aprendizaje`
 --
 
-LOCK TABLES `unidad_de_aprendizaje` WRITE;
-/*!40000 ALTER TABLE `unidad_de_aprendizaje` DISABLE KEYS */;
-/*!40000 ALTER TABLE `unidad_de_aprendizaje` ENABLE KEYS */;
+LOCK TABLES `SAUAP`.`unidad_de_aprendizaje` WRITE;
+/*!40000 ALTER TABLE `SAUAP`.`unidad_de_aprendizaje` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SAUAP`.`unidad_de_aprendizaje` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Table structure for table `usuario`
 --
 
-DROP TABLE IF EXISTS `usuario`;
+DROP TABLE IF EXISTS `SAUAP`.`usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuario` (
+CREATE TABLE `SAUAP`.`usuario` (
   `id_usuario` int NOT NULL AUTO_INCREMENT,
   `nombre_usuario` varchar(50) DEFAULT NULL,
   `contrasena` varchar(50) DEFAULT NULL,
@@ -148,9 +151,9 @@ CREATE TABLE `usuario` (
 -- Dumping data for table `usuario`
 --
 
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+LOCK TABLES `SAUAP`.`usuario` WRITE;
+/*!40000 ALTER TABLE `SAUAP`.`usuario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SAUAP`.`usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
