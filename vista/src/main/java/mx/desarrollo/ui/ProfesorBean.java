@@ -33,11 +33,11 @@ public class ProfesorBean implements Serializable{
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de registro:", "Hubo un error al hacer el registro en la BD."));
         }
     }
-    public void buscar(int id){
-        Profesor p = profesorHelper.buscar(id);
+    public Profesor buscar(int id){
+        return profesorHelper.buscar(id);
     }
-    public void consultar(){
-        List<Profesor> listaProfes = profesorHelper.consultar();
+    public List<Profesor> consultar(){
+        return profesorHelper.consultar();
     }
     
     /* getters y setters*/
