@@ -23,27 +23,64 @@ public class ServiceLocator {
         return HibernateUtil.getEntityManager();
     }
 
+
     /**
-     * se crea la instancia para alumno DAO si esta no existe
+     * se crea la instancia de profesorDAO si esta no existe
      */
-    public static AlumnoDAO getInstanceAlumnoDAO(){
-        if(alumnoDAO == null){
-            alumnoDAO = new AlumnoDAO(getEntityManager());
-            return alumnoDAO;
+    public static ProfesorDAO getInstanceProfesorDAO(){
+        if(profesorDAO == null){
+            profesorDAO = new ProfesorDAO(getEntityManager());
+            return profesorDAO;
         } else{
-            return alumnoDAO;
+            return profesorDAO;
         }
     }
+
     /**
-     * se crea la instancia de usuarioDAO si esta no existe
+     * se crea la instancia de horarioDAO si esta no existe
      */
-    public static UsuarioDAO getInstanceUsuarioDAO(){
-        if(usuarioDAO == null){
+    public static HorarioDAO getInstanceHorarioDAO(){
+        if(horarioDAO == null){
+            horarioDAO = new HorarioDAO(getEntityManager());
+            return horarioDAO;
+        } else{
+            return horarioDAO;
+        }
+    }
+
+    /**
+     * se crea la instancia de unidad_de_aprendizajeDAO si esta no existe
+     */
+    public static Unidad_De_AprendizajeDAO getInstanceHorarioDAO() {
+        if (unidad_de_aprendizajeDAO == null) {
+            unidad_de_aprendizajeDAO = new Unidad_De_aprendizajeDAO(getEntityManager());
+            return unidad_de_aprendizajeDAO;
+        } else {
+            return unidad_de_aprendizajeDAO;
+        }
+    }
+
+    /**
+     * se crea la instancia para asignacionDAO si esta no existe
+     */
+    public static AsignacionDAO getInstanceAsignacionDAO () {
+        if (asignacionDAO == null) {
+            asignacionDAO = new AsignacionDAO(getEntityManager());
+            return asignacionDAO;
+        } else {
+            return asignacionDAO;
+        }
+    }
+
+    /**
+     * se crea la instancia para usuarioDAO si esta no existe
+     */
+    public static UsuarioDAO getInstanceUsuarioDAO () {
+        if (usuarioDAO == null) {
             usuarioDAO = new UsuarioDAO(getEntityManager());
             return usuarioDAO;
-        } else{
+        } else {
             return usuarioDAO;
         }
     }
-    
 }
