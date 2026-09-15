@@ -10,18 +10,7 @@ import mx.desarrollo.integration.ServiceFacadeLocator;
 import java.io.Serializable;
 
 public class LoginHelper implements Serializable {
-    
-
-    /**
-     * Metodo para hacer login llamara a la instancia de usuarioFacade
-     * @param correo
-     * @param password
-     * @return 
-     */
-    public Usuario Login(String correo, String password){
-        return ServiceFacadeLocator.getInstanceFacadeUsuario().login(password, correo);
+    public Usuario iniciarSesion(String usuario, String contrasena){
+        return ServiceFacadeLocator.getInstanceFacadeUsuario().iniciarSesion(usuario, contrasena);
     }
-    
-    
-    
 }

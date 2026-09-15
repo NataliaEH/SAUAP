@@ -18,59 +18,33 @@ import java.io.Serializable;
 
 @Named("loginUI")
 @SessionScoped
-public class LoginBeanUI implements Serializable{
+public class LoginBean implements Serializable{
     private LoginHelper loginHelper;
     private Usuario usuario;
     
-    public LoginBeanUI() {
+    public LoginBean() {
         loginHelper = new LoginHelper();
     }
-    
-    /**
-     * Metodo postconstructor todo lo que este dentro de este metodo
-     * sera la primero que haga cuando cargue la pagina
-     */
     @PostConstruct
     public void init(){
-        usuario= new Usuario();
+        usuario = new Usuario();
     }
 
-     public void login() throws IOException{
+    public void iniciarSesion() throws IOException{
         String appURL = "/index.xhtml";
-        // los atributos de usuario vienen del xhtml 
         Usuario us= new Usuario();
         us.setId(0);
-        us = loginHelper.Login(usuario.getCorreo(), usuario.getContrasena());
-          if(us != null && us.getId()!=null){
-            // asigno el usuario encontrado al usuario de esta clase para que 
-            // se muestre correctamente en la pagina de informacion
-            usuario=us;
+        us = loginHelper.iniciarSesion(usuario.getUsuario(), usuario.getContrasena());
+        if(us != null && us.getId()!=null){
+            usuario = us;
             FacesContext.getCurrentInstance().getExternalContext().redirect(FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + appURL);
         }else{
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuario o contraseña incorrecta:", "Intente de nuevo"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuario o contraseña incorrecta:", "Intente de nuevo."));
         }
     }
-
     
     /* getters y setters*/
-
     public Usuario getUsuario() {
         return usuario;
     }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-
-    
 }

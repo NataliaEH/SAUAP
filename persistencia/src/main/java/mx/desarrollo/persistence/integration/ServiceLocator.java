@@ -45,5 +45,4 @@ public class ServiceLocator {
             return usuarioDAO;
         }
     }
-    
 }

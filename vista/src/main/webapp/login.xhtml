@@ -18,7 +18,6 @@
                 margin: 0 auto;
                 
             }
-            
            
             div.login{
                 position: absolute;
@@ -48,11 +47,8 @@
 
     <h:body>
         <div class = "row">
-           
             <h:form>
-               
                 <p:messages id="messages" showDetail="true" closable="true">
-                     
                 </p:messages>
                 <div class="login">
                     <div class="panel-header">
@@ -66,13 +62,9 @@
                             <p:password class ="form-control" placeholder="Contraseña: " value="#{loginUI.usuario.contrasena}" />
                         </div>
                         <p:commandButton update="messages" class = "btn btn-success" value ="Iniciar sesion" actionListener ="#{loginUI.login()}" />
-
                     </div>
                 </div>
-                
             </h:form>
-            
         </div>
-            
     </h:body>
 </html>
