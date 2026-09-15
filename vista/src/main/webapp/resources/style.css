@@ -8,7 +8,6 @@ html, body {
 .login-bg {
     width: 100%;
     min-height: 100vh;
-    background-image: url('fondoSAUAP.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -18,9 +17,27 @@ html, body {
     box-sizing: border-box;
 }
 
+.login-bg form {
+    display: contents;
+}
+
+.ui-messages {
+    position: fixed !important;
+    bottom: 24px !important;
+    top: auto !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    width: auto !important;
+    max-width: 90% !important;
+}
+
 .login-card {
     width: 476px;
     height: 734px;
+    flex-shrink: 0;
     background-color: #FFFFFF;
     box-sizing: border-box;
     padding-bottom: 48px;
@@ -39,6 +56,8 @@ html, body {
     margin: 19px 0 0;
     width: 335px;
     text-align: center;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
 }
 
 .login-field-usuario {
@@ -53,6 +72,8 @@ html, body {
 
 .login-field-usuario label,
 .login-field-contrasena label {
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
     display: block;
     margin-bottom: 7px;
 }
@@ -69,6 +90,8 @@ html, body {
     width: 335px !important;
     height: 48px !important;
     margin-top: 68px;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
     background-color: #664147 !important;
     border-color: #664147 !important;
     color: #FFFFFF !important;

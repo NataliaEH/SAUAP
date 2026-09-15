@@ -6,12 +6,15 @@
       xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-        <title>SAUAP · Iniciar sesión</title>
+        <title>SAUAP</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+        <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@600&amp;display=swap" rel="stylesheet"/>
         <h:outputStylesheet name="style.css" />
     </h:head>
 
     <h:body>
-        <div class="login-bg">
+        <div class="login-bg" style="background-image: url('#{resource['fondoSAUAP.png']}');">
             <h:form id="loginForm">
 
                 <p:messages id="messages" showDetail="true" closable="true" globalOnly="true" />
