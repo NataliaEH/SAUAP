@@ -104,3 +104,191 @@ html, body {
     color: #FFFFFF !important;
     border: none !important;
 }
+
+
+
+
+
+.app-shell {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-topbar {
+    height: 85px;
+    width: 100%;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    flex-shrink: 0;
+}
+
+.app-logo-long {
+    width: 173px;
+    height: 70px;
+}
+
+.app-body {
+    display: flex;
+    flex: 1;
+}
+
+.app-sidebar {
+    width: 310px;
+    background-color: #FFFFFF;
+    padding: 24px 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.nav-section-label {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 12px;
+    color: #8A8A8A;
+    margin: 16px 8px 8px;
+}
+
+.nav-item {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 14px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    color: #40C9A2;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-item i {
+    color: #40C9A2;
+}
+
+.nav-item.active {
+    background-color: #40C9A2;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.nav-item.active i {
+    color: #FFFFFF;
+}
+
+.nav-footer {
+    margin-top: auto;
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 14px;
+    padding: 10px 12px;
+    color: #1E1E1E;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.app-main {
+    flex: 1;
+    padding: 32px;
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.welcome-banner {
+    background-color: #40C9A2;
+    color: #FFFFFF;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+}
+
+.section-title {
+    font-family: 'Martel Sans', sans-serif;
+    margin: 0 0 4px;
+    color: #1E1E1E;
+}
+
+.section-subtitle {
+    font-family: 'Martel Sans', sans-serif;
+    color: #8A8A8A;
+    margin: 0 0 20px;
+}
+
+.content-card {
+    width: 1104px;
+    height: 533px;
+    background-color: #FFFFFF;
+    padding: 32px 32px 42px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-family: 'Martel Sans', sans-serif;
+    margin: 0 0 4px;
+}
+
+.card-subtitle {
+    font-family: 'Martel Sans', sans-serif;
+    color: #8A8A8A;
+    margin: 0 0 16px;
+}
+
+.card-divider {
+    border: none;
+    border-top: 1px solid #E5F9E0;
+    margin: 0 0 24px;
+}
+
+.form-field {
+    margin-bottom: 20px;
+}
+
+.form-field label {
+    display: block;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.form-input-long.ui-inputfield {
+    width: 494px !important;
+    height: 48px !important;
+    box-sizing: border-box;
+    border: 3px solid #A3F7B5 !important;
+    background-color: #FFFFFF !important;
+}
+
+.form-input-short.ui-inputfield {
+    width: 355px !important;
+    height: 48px !important;
+    box-sizing: border-box;
+    border: 3px solid #A3F7B5 !important;
+    background-color: #FFFFFF !important;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.btn-primary.ui-button {
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    background-color: #664147 !important;
+    border-color: #664147 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    height: 44px !important;
+}
