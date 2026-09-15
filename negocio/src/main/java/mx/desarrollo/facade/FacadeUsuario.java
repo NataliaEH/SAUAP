@@ -12,7 +12,7 @@ public class FacadeUsuario {
     }
 
     public Usuario login(String password, String correo){
-        return delegateUsuario.login(password, correo);
+        return delegateUsuario.autenticar(password, correo);
     }
 
     public void saveUsario(Usuario usuario){
