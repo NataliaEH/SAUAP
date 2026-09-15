@@ -34,6 +34,13 @@ html, body {
     max-width: 90% !important;
 }
 
+.ui-messages .ui-messages-warn,
+.ui-messages .ui-messages-error,
+.ui-messages .ui-messages-info,
+.ui-messages .ui-messages-fatal {
+    background-color: #FFFFFF !important;
+}
+
 .login-card {
     width: 476px;
     height: 734px;
