@@ -3,6 +3,7 @@ package mx.desarrollo.integration;
 
 import mx.desarrollo.facade.FacadeAsignacion;
 import mx.desarrollo.facade.FacadeProfesor;
+import mx.desarrollo.facade.FacadeUA;
 import mx.desarrollo.facade.FacadeUsuario;
 
 public class ServiceFacadeLocator {
@@ -30,7 +31,7 @@ public class ServiceFacadeLocator {
         }
     }
 
-    public static FacadeUA getInstanceFacadeUnidadAprendizaje() {
+    public static FacadeUA getInstanceFacadeUA() {
         if (facadeUA == null) {
             facadeUA = new FacadeUA();
             return facadeUA;

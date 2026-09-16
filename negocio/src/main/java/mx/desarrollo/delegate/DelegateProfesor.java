@@ -5,7 +5,6 @@ import mx.desarrollo.persistence.integration.ServiceLocator;
 public class DelegateProfesor {
     public boolean registrar(String nombre, String apellidoPat, String apellidoMat, String rfc) {
 
-
         Profesor profesor = new Profesor();
         profesor.setNombre(nombre);
         profesor.setApellidoPat(apellidoPat);
