@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="SAUAP@localhost" uuid="d3521b46-34f2-4ea4-88d5-24bbfe2bb7e5">
-      <driver-ref>mysql.8</driver-ref>
+    <data-source source="LOCAL" name="sauap@localhost" uuid="bc005ec7-d133-4e47-b1cb-0968afa7194b">
+      <driver-ref>mysql.9</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/SAUAP</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/sauap</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
