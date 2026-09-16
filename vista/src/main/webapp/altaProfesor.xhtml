@@ -29,6 +29,7 @@
                     <p:inputText id="nombre"
                                  styleClass="form-input-long"
                                  placeholder="Nombre del profesor"
+                                 value="#{profesorUI.profesor.nombre}"
                                  required="true"
                                  requiredMessage="Ingresa el nombre del profesor."/>
                 </div>
@@ -38,6 +39,7 @@
                     <p:inputText id="apellidoPaterno"
                                  styleClass="form-input-long"
                                  placeholder="Apellido paterno"
+                                 value="#{profesorUI.profesor.apellidoPat}"
                                  required="true"
                                  requiredMessage="Ingresa el apellido paterno."/>
                 </div>
@@ -47,6 +49,7 @@
                     <p:inputText id="apellidoMaterno"
                                  styleClass="form-input-long"
                                  placeholder="Apellido materno"
+                                 value="#{profesorUI.profesor.apellidoMat}"
                                  required="true"
                                  requiredMessage="Ingresa el apellido materno."/>
                 </div>
@@ -56,6 +59,8 @@
                     <p:inputText id="rfc"
                                  styleClass="form-input-short"
                                  placeholder="..."
+                                 value="#{profesorUI.profesor.rfc}"
+                                 maxlength="13"
                                  required="true"
                                  requiredMessage="Ingresa el RFC del profesor."/>
                 </div>
@@ -63,6 +68,7 @@
                 <div class="form-actions">
                     <p:commandButton value="Guardar profesor"
                                      styleClass="btn-primary"
+                                     action="#{profesorUI.registrar}"
                                      process="@form"
                                      update="messages"
                                      ajax="true"/>

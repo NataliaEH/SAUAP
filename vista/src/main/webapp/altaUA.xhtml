@@ -30,6 +30,8 @@
                     <p:inputText id="nombre"
                                  styleClass="form-input-long"
                                  placeholder="Nombre de la UA"
+                                 value="#{uaUI.UA.nombre}"
+                                 maxlength="50"
                                  required="true"
                                  requiredMessage="Ingresa el nombre de la Unidad de Aprendizaje."/>
                 </div>
@@ -37,7 +39,9 @@
                 <div class="form-field">
                     <h:outputLabel for="horasClase" value="Horas Clase" />
                     <p:selectOneMenu id="horasClase"
+                                     widgetVar="horasClaseW"
                                      styleClass="form-select-short"
+                                     value="#{uaUI.UA.horasClase}"
                                      required="true"
                                      requiredMessage="Selecciona las Horas Clase.">
                         <f:selectItem itemLabel="0" itemValue="0"/>
@@ -51,7 +55,9 @@
                 <div class="form-field">
                     <h:outputLabel for="horasTaller" value="Horas Taller" />
                     <p:selectOneMenu id="horasTaller"
+                                     widgetVar="horasTallerW"
                                      styleClass="form-select-short"
+                                     value="#{uaUI.UA.horasTaller}"
                                      required="true"
                                      requiredMessage="Selecciona las Horas Taller.">
                         <f:selectItem itemLabel="0" itemValue="0"/>
@@ -65,7 +71,9 @@
                 <div class="form-field">
                     <h:outputLabel for="horasLaboratorio" value="Horas Laboratorio" />
                     <p:selectOneMenu id="horasLaboratorio"
+                                     widgetVar="horasLaboratorioW"
                                      styleClass="form-select-short"
+                                     value="#{uaUI.UA.horasLaboratorio}"
                                      required="true"
                                      requiredMessage="Selecciona las Horas Laboratorio.">
                         <f:selectItem itemLabel="0" itemValue="0"/>
@@ -79,6 +87,7 @@
                 <div class="form-actions">
                     <p:commandButton value="Guardar UA"
                                      styleClass="btn-primary"
+                                     action="#{uaUI.registrar}"
                                      process="@form"
                                      update="messages"
                                      ajax="true"/>
