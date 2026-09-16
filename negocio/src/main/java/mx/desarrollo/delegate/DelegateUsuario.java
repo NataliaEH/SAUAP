@@ -6,20 +6,15 @@ import mx.desarrollo.persistence.integration.ServiceLocator;
 import java.util.List;
 
 public class DelegateUsuario {
-    public Usuario login(String password, String correo){
-        Usuario usuario = new Usuario();
+    public Usuario iniciarSesion(String usuario, String contrasena) {
+        Usuario usuarioEncontrado = new Usuario();
         List<Usuario> usuarios = ServiceLocator.getInstanceUsuarioDAO().findAll();
 
-        for(Usuario us:usuarios){
-            if(us.getContrasena().equalsIgnoreCase(password) && us.getCorreo().equalsIgnoreCase(correo)){
-                usuario = us;
+        for (Usuario us : usuarios) {
+            if (us.getContrasena().equalsIgnoreCase(contrasena) && us.getCorreo().equalsIgnoreCase(usuario)) {
+                usuarioEncontrado = us;
             }
         }
-        return usuario;
+        return usuarioEncontrado;
     }
-
-    public void saveUsario(Usuario usuario){
-        ServiceLocator.getInstanceUsuarioDAO().save(usuario);
-    }
-
 }

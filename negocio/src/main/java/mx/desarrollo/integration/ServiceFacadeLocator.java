@@ -1,19 +1,42 @@
 package mx.desarrollo.integration;
 
-import mx.desarrollo.facade.FacadeAlumno;
+
+import mx.desarrollo.facade.FacadeAsignacion;
+import mx.desarrollo.facade.FacadeProfesor;
+import mx.desarrollo.facade.FacadeUA;
 import mx.desarrollo.facade.FacadeUsuario;
 
 public class ServiceFacadeLocator {
 
-    private static FacadeAlumno facadeAlumno;
+    private static FacadeProfesor facadeProfesor;
+    private static FacadeAsignacion facadeAsignacion;
+    private static FacadeUA facadeUA;
     private static FacadeUsuario facadeUsuario;
 
-    public static FacadeAlumno getInstanceFacadeAlumno() {
-        if (facadeAlumno == null) {
-            facadeAlumno = new FacadeAlumno();
-            return facadeAlumno;
+    public static FacadeProfesor getInstanceFacadeProfesor() {
+        if (facadeProfesor == null) {
+            facadeProfesor = new FacadeProfesor();
+            return facadeProfesor;
         } else {
-            return facadeAlumno;
+            return facadeProfesor;
+        }
+    }
+
+    public static FacadeAsignacion getInstanceFacadeAsignacion() {
+        if (facadeAsignacion == null) {
+            facadeAsignacion = new FacadeAsignacion();
+            return facadeAsignacion;
+        } else {
+            return facadeAsignacion;
+        }
+    }
+
+    public static FacadeUA getInstanceFacadeUA() {
+        if (facadeUA == null) {
+            facadeUA = new FacadeUA();
+            return facadeUA;
+        } else {
+            return facadeUA;
         }
     }
 
@@ -26,3 +49,5 @@ public class ServiceFacadeLocator {
         }
     }
 }
+
+
