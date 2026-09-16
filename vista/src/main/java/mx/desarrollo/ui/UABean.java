@@ -10,7 +10,7 @@ import mx.desarrollo.helper.UAHelper;
 
 import java.io.Serializable;
 
-@Named("profesorUI")
+@Named("uaUI")
 @SessionScoped
 public class UABean implements Serializable{
     private UAHelper uaHelper;
