@@ -24,6 +24,11 @@ public class DelegateUA {
     }
 
     public boolean modificar(int id, String nombre, int horasClase, int horasTaller, int horasLab) {
+
+        if (nombre == null || nombre.trim().isEmpty() || nombre.length() > 45) {
+            return false;
+        }
+
         UnidadAprendizaje ua = new UnidadAprendizaje();
         ua.setId(id);
         ua.setNombre(nombre);
@@ -40,6 +45,7 @@ public class DelegateUA {
 
     public boolean eliminar(int id) {
         UnidadAprendizaje ua = buscar(id);
+
         if(ua == null){
             return false;
         }
