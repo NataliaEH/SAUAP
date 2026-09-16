@@ -29,7 +29,7 @@ public class ProfesorBean implements Serializable{
     public void registrar(){
         boolean registrado = profesorHelper.registrar(profesor.getNombre(), profesor.getApellidoPat(), profesor.getApellidoMat(), profesor.getRfc());
         if(registrado){
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Profesor registrado:", "El profesor se agrego al catalogo."));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Profesor registrado:", "El profesor se agregó al catálogo."));
         }else{
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de registro:", "Hubo un error al hacer el registro en la BD."));
         }
