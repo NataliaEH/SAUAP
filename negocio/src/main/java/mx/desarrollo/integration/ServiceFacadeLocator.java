@@ -1,7 +1,7 @@
 package mx.desarrollo.integration;
 
 
-//import mx.desarrollo.facade.FacadeAsignacion;
+import mx.desarrollo.facade.FacadeAsignacion;
 import mx.desarrollo.facade.FacadeProfesor;
 import mx.desarrollo.facade.FacadeUA;
 import mx.desarrollo.facade.FacadeUsuario;
@@ -9,7 +9,7 @@ import mx.desarrollo.facade.FacadeUsuario;
 public class ServiceFacadeLocator {
 
     private static FacadeProfesor facadeProfesor;
-    //private static FacadeAsignacion facadeAsignacion;
+    private static FacadeAsignacion facadeAsignacion;
     private static FacadeUA facadeUA;
     private static FacadeUsuario facadeUsuario;
 
@@ -22,14 +22,14 @@ public class ServiceFacadeLocator {
         }
     }
 
-    /*public static FacadeAsignacion getInstanceFacadeAsignacion() {
+    public static FacadeAsignacion getInstanceFacadeAsignacion() {
         if (facadeAsignacion == null) {
             facadeAsignacion = new FacadeAsignacion();
             return facadeAsignacion;
         } else {
             return facadeAsignacion;
         }
-    }*/
+    }
 
     public static FacadeUA getInstanceFacadeUA() {
         if (facadeUA == null) {
