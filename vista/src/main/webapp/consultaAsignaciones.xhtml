@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/layout.xhtml">
+
+    <ui:param name="activePage" value="consultaAsignaciones"/>
+
+    <ui:define name="title">SAUAP - Consulta de Asignaciones</ui:define>
+
+    <ui:define name="content">
+
+        <h2 class="section-title">Consulta de Asignaciones</h2>
+        <p class="section-subtitle">Consulta las asignaciones de profesores a una unidad de aprendizaje</p>
+
+        <div class="query-card">
+
+            <div class="query-toolbar">
+                <p:inputText styleClass="query-search" placeholder="Buscar por Unidad de Aprendizaje"/>
+            </div>
+
+            <table class="query-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Unidad de Aprendizaje</th>
+                    <th>Grupo</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Luis Armando Jara Lugo</td>
+                    <td>Desarrollo de Software</td>
+                    <td>141</td>
+                    <td>
+                        <p:commandButton value="Modificar" styleClass="btn-table-wine" ajax="false"/>
+                        <p:commandButton value="Eliminar" styleClass="btn-table-wine" ajax="false"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Edwin R. Garcia Curiel</td>
+                    <td>Inteligencia Artificial</td>
+                    <td>141</td>
+                    <td>
+                        <p:commandButton value="Modificar" styleClass="btn-table-wine" ajax="false"/>
+                        <p:commandButton value="Eliminar" styleClass="btn-table-wine" ajax="false"/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </ui:define>
+
+</ui:composition>

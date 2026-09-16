@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/layout.xhtml">
+
+    <ui:param name="activePage" value="profesores"/>
+
+    <ui:define name="title">SAUAP - Alta de Profesores</ui:define>
+
+    <ui:define name="content">
+
+        <h2 class="section-title">Alta de profesor</h2>
+        <p class="section-subtitle">Registra un nuevo docente en el catálogo</p>
+
+        <h:form id="profesorForm">
+
+            <p:messages id="messages" showDetail="true" closable="true" globalOnly="false" />
+
+            <div class="content-card">
+
+                <h3 class="card-title">Datos del profesor</h3>
+                <p class="card-subtitle">Todos los campos son obligatorios</p>
+                <hr class="card-divider"/>
+
+                <div class="form-field">
+                    <h:outputLabel for="nombre" value="Nombre" />
+                    <p:inputText id="nombre"
+                                 styleClass="form-input-long"
+                                 placeholder="Nombre del profesor"
+                                 required="true"
+                                 requiredMessage="Ingresa el nombre del profesor."/>
+                </div>
+
+                <div class="form-field">
+                    <h:outputLabel for="apellidoPaterno" value="Apellido paterno" />
+                    <p:inputText id="apellidoPaterno"
+                                 styleClass="form-input-long"
+                                 placeholder="Apellido paterno"
+                                 required="true"
+                                 requiredMessage="Ingresa el apellido paterno."/>
+                </div>
+
+                <div class="form-field">
+                    <h:outputLabel for="apellidoMaterno" value="Apellido materno" />
+                    <p:inputText id="apellidoMaterno"
+                                 styleClass="form-input-long"
+                                 placeholder="Apellido materno"
+                                 required="true"
+                                 requiredMessage="Ingresa el apellido materno."/>
+                </div>
+
+                <div class="form-field">
+                    <h:outputLabel for="rfc" value="RFC" />
+                    <p:inputText id="rfc"
+                                 styleClass="form-input-short"
+                                 placeholder="..."
+                                 required="true"
+                                 requiredMessage="Ingresa el RFC del profesor."/>
+                </div>
+
+                <div class="form-actions">
+                    <p:commandButton value="Guardar profesor"
+                                     styleClass="btn-primary"
+                                     process="@form"
+                                     update="messages"
+                                     ajax="true"/>
+                    <p:commandButton value="Limpiar campos"
+                                     type="reset"
+                                     styleClass="btn-primary"
+                                     ajax="false"
+                                     immediate="true"/>
+                </div>
+
+            </div>
+
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

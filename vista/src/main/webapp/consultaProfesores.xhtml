@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/layout.xhtml">
+
+    <ui:param name="activePage" value="consultaProfesores"/>
+
+    <ui:define name="title">SAUAP - Consulta de Profesores</ui:define>
+
+    <ui:define name="content">
+
+        <h2 class="section-title">Consulta General de Profesores</h2>
+        <p class="section-subtitle">Consulta todos los profesores registrados en el catálogo y su información personal</p>
+
+        <div class="query-card">
+
+            <div class="query-toolbar">
+                <p:inputText styleClass="query-search" placeholder="Buscar por nombre de profesor"/>
+            </div>
+
+            <table class="query-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>RFC</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Luis Armando Jara Lugo</td>
+                    <td>JALL950903HSNSRTA5</td>
+                    <td>
+                        <p:commandButton value="Ver" styleClass="btn-table" ajax="false"/>
+                        <p:commandButton value="Asignar" styleClass="btn-table" ajax="false"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Edwin R. Garcia Curiel</td>
+                    <td>GACE950906HBCSRTA5</td>
+                    <td>
+                        <p:commandButton value="Ver" styleClass="btn-table" ajax="false"/>
+                        <p:commandButton value="Asignar" styleClass="btn-table" ajax="false"/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </ui:define>
+
+</ui:composition>

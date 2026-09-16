@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/layout.xhtml">
+
+    <ui:param name="activePage" value="consultaUA"/>
+
+    <ui:define name="title">SAUAP - Consulta de UA</ui:define>
+
+    <ui:define name="content">
+
+        <h2 class="section-title">Consulta General de UA</h2>
+        <p class="section-subtitle">Consulta todas las unidades de aprendizaje registradas en el catálogo y su información</p>
+
+        <div class="query-card">
+
+            <div class="query-toolbar">
+                <p:inputText styleClass="query-search" placeholder="Buscar por nombre de UA"/>
+            </div>
+
+            <table class="query-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Desarrollo de Software</td>
+                    <td><p:commandButton value="Ver" styleClass="btn-table" ajax="false"/></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Inteligencia Artificial</td>
+                    <td><p:commandButton value="Ver" styleClass="btn-table" ajax="false"/></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </ui:define>
+
+</ui:composition>
