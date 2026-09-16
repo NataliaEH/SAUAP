@@ -3,6 +3,7 @@ package mx.desarrollo.helper;
 import mx.desarrollo.entity.Profesor;
 import mx.desarrollo.integration.ServiceFacadeLocator;
 import java.io.Serializable;
+import java.util.List;
 
 public class ProfesorHelper implements Serializable {
     public boolean registrar(String nombre, String apellidoPat, String apellidoMat, String rfc){

@@ -12,9 +12,6 @@ public class FacadeUsuario {
     }
 
     public Usuario iniciarSesion (String usuario, String contrasena){
-        return delegateUsuario.iniciarSesion(contrasena, usuario);
+        return delegateUsuario.iniciarSesion(usuario, contrasena);
     }
-
-
-
 }

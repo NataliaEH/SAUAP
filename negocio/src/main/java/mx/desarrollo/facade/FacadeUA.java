@@ -2,6 +2,9 @@ package mx.desarrollo.facade;
 
 
 import mx.desarrollo.delegate.DelegateUA;
+import mx.desarrollo.entity.UnidadAprendizaje;
+
+import java.util.List;
 
 
 public class FacadeUA {
@@ -12,16 +15,16 @@ public class FacadeUA {
         this.delegateUA = new DelegateUA();
     }
 
-    public void registrar(String nombre, int horasClase, int horasTaller, int horasLab) {
-        delegateUA.registrar(nombre, horasClase, horasTaller, horasLab);
+    public boolean registrar(String nombre, int horasClase, int horasTaller, int horasLab) {
+        return delegateUA.registrar(nombre, horasClase, horasTaller, horasLab);
     }
 
-    public void modificar(int id) {
-        delegateUA.modificar(id);
+    public boolean modificar(int id, String nombre, int horasClase, int horasTaller, int horasLab) {
+        return delegateUA.modificar(id, nombre, horasClase, horasTaller, horasLab);
     }
 
-    public void eliminar(int id) {
-        delegateUA.eliminar(id);
+    public boolean eliminar(int id) {
+        return delegateUA.eliminar(id);
     }
 
     public UnidadAprendizaje buscar(int id) {

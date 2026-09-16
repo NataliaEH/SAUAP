@@ -10,6 +10,7 @@ import mx.desarrollo.entity.Horario;
 import mx.desarrollo.helper.AsignacionHelper;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Named("asignacionUI")
 @SessionScoped
@@ -17,7 +18,7 @@ public class AsignacionBean implements Serializable{
     private AsignacionHelper asignacionHelper;
     private Asignacion asignacion;
     private List<Horario> horarios;
-
+/*
     public AsignacionBean() {
         asignacionHelper = new AsignacionHelper();
     }
@@ -27,7 +28,7 @@ public class AsignacionBean implements Serializable{
     }
 
     public void asignar(){
-        boolean asignado = asignacionHelper.asignar(asignacion.getUA(), asignacion.getProfesor(), asignacion.getHorarios());
+        boolean asignado = asignacionHelper.asignar(asignacion.getUnidadAprendizaje(), asignacion.getProfesor(), asignacion.getHorarios());
         if(asignado){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Asignacion registrada:", "La asignacion se agrego al catalogo."));
         }else{
@@ -35,7 +36,7 @@ public class AsignacionBean implements Serializable{
         }
     }
     public void modificar(int id){
-        boolean modificado = asignacionHelper.asignar(id, asignacion.getUA(), asignacion.getProfesor(), asignacion.getHorarios());
+        boolean modificado = asignacionHelper.modificar(id, asignacion.getUnidadAprendizaje(), asignacion.getProfesor(), asignacion.getHorarios());
         if(modificado){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Asignacion modificada:", "La asignacion se modifico en el catalogo."));
         }else{
@@ -60,7 +61,7 @@ public class AsignacionBean implements Serializable{
     public void agregarHorario(int idAsig){
         //
     }
-
+*/
     /* getters y setters*/
     public Asignacion getAsignacion() {
         return asignacion;

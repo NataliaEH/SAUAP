@@ -32,7 +32,7 @@
                     <h:outputLabel for="usuario" value="Usuario" />
                     <p:inputText id="usuario"
                                  styleClass="login-input"
-                                 value="#{loginUI.usuario.correo}"
+                                 value="#{loginUI.usuario.usuario}"
                                  required="true"
                                  requiredMessage="Ingresa tu usuario."
                                  autocomplete="off"/>
@@ -51,7 +51,7 @@
 
                 <p:commandButton value="Iniciar Sesión"
                                  styleClass="login-button"
-                                 actionListener="#{loginUI.login()}"
+                                 actionListener="#{loginUI.iniciarSesion()}"
                                  process="@form"
                                  update="messages"
                                  ajax="true"/>

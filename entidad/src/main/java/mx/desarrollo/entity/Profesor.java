@@ -4,12 +4,14 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+import java.util.List;
+
 @Entity
 @Table(name = "profesor")
 public class Profesor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idprofesor", nullable = false)
+    @Column(name = "id_profesor", nullable = false)
     private Integer id;
 
     @Size(max = 45)
@@ -19,12 +21,12 @@ public class Profesor {
 
     @Size(max = 45)
     @NotNull
-    @Column(name = "apellidoPat", nullable = false, length = 45)
+    @Column(name = "apellido_pat", nullable = false, length = 45)
     private String apellidoPat;
 
     @Size(max = 45)
     @NotNull
-    @Column(name = "apellidoMat", nullable = false, length = 45)
+    @Column(name = "apellido_mat", nullable = false, length = 45)
     private String apellidoMat;
 
     @Size(max = 45)

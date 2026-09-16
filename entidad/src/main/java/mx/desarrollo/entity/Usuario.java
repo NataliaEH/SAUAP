@@ -9,17 +9,17 @@ import jakarta.validation.constraints.Size;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idusuario", nullable = false)
+    @Column(name = "id_usuario", nullable = false)
     private Integer id;
 
-    @Size(max = 45)
+    @Size(max = 50)
     @NotNull
-    @Column(name = "usuario", nullable = false, length = 45)
+    @Column(name = "nombre_usuario", nullable = false, length = 50)
     private String usuario;
 
-    @Size(max = 45)
+    @Size(max = 50)
     @NotNull
-    @Column(name = "contrasena", nullable = false, length = 45)
+    @Column(name = "contrasena", nullable = false, length = 50)
     private String contrasena;
 
     public Integer getId() {

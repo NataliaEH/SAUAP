@@ -1,24 +1,28 @@
 package mx.desarrollo.entity;
 
-package mx.desarrollo.entity;
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+
+import java.util.List;
 
 @Entity
 @Table(name = "asignacion")
 public class Asignacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idAsignacion", nullable = false)
+    @Column(name = "id_asignacion", nullable = false)
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "id_profesor")
     private Profesor profesor;
 
+    @ManyToOne
+    @JoinColumn(name = "id_ua")
     private UnidadAprendizaje unidadAprendizaje;
 
-    @OneToMany(mappedBy = "unidadAprendizaje")
+    @OneToMany(mappedBy = "asignacion")
     private List<Horario> horarios;
 
     public Integer getId() {return id;}
@@ -27,13 +31,13 @@ public class Asignacion {
 
     public Profesor getProfesor() {return profesor;}
 
-    public Profesor setProfesor(Profesor profesor){this.profesor = profesor;}
+    public void setProfesor(Profesor profesor){this.profesor = profesor;}
 
     public UnidadAprendizaje getUnidadAprendizaje(){return unidadAprendizaje;}
 
-    public UnidadAprendizaje setUnidadAprendizaje(UnidadAprendizaje unidadAprendizaje) {this.unidadAprendizaje = unidadAprendizaje;}
+    public void setUnidadAprendizaje(UnidadAprendizaje unidadAprendizaje) {this.unidadAprendizaje = unidadAprendizaje;}
 
     public List<Horario> getHorarios() {return horarios;}
 
-    public List<Horario> setHorarios(List<Horario> horarios) {this.horarios = horarios;}
+    public void setHorarios(List<Horario> horarios) {this.horarios = horarios;}
 }

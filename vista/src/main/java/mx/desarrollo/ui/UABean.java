@@ -9,6 +9,7 @@ import mx.desarrollo.entity.UnidadAprendizaje;
 import mx.desarrollo.helper.UAHelper;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Named("uaUI")
 @SessionScoped
@@ -33,7 +34,7 @@ public class UABean implements Serializable{
         }
     }
     public void modificar(int id){
-        boolean modificado = uaHelper.registrar(id, ua.getNombre(), ua.getHorasClase(), ua.getHorasTaller(), ua.getHorasLaboratorio());
+        boolean modificado = uaHelper.modificar(id, ua.getNombre(), ua.getHorasClase(), ua.getHorasTaller(), ua.getHorasLaboratorio());
         if(modificado){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "UA modificada:", "La UA se modifico en el catalogo."));
         }else{

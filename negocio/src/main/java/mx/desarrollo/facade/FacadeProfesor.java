@@ -2,6 +2,9 @@ package mx.desarrollo.facade;
 
 
 import mx.desarrollo.delegate.DelegateProfesor;
+import mx.desarrollo.entity.Profesor;
+
+import java.util.List;
 
 public class FacadeProfesor {
 

@@ -10,6 +10,7 @@ import mx.desarrollo.helper.ProfesorHelper;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.List;
 
 @Named("profesorUI")
 @SessionScoped

@@ -1,12 +1,12 @@
 package mx.desarrollo.persistence.dao;
 
 import jakarta.persistence.EntityManager;
-import mx.desarrollo.entity.Usuario;
+import mx.desarrollo.entity.UnidadAprendizaje;
 import mx.desarrollo.persistence.persistence.AbstractDAO;
 
 import java.util.List;
 
-public class UnidadAprendizajeDAO extends AbstractDAO<UnidadAprendizajeDAO> {
+public class UnidadAprendizajeDAO extends AbstractDAO<UnidadAprendizaje> {
     private final EntityManager entityManager;
 
     public UnidadAprendizajeDAO(EntityManager em) {
