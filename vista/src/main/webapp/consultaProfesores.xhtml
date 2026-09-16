@@ -1,0 +1,348 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/layout.xhtml">
+
+    <ui:param name="activePage" value="consultaProfesores"/>
+
+    <ui:define name="title">SAUAP - Consulta de Profesores</ui:define>
+
+    <ui:define name="content">
+
+        <h2 class="section-title">Consulta General de Profesores</h2>
+        <p class="section-subtitle">Consulta todos los profesores registrados en el catálogo y su información personal</p>
+
+        <h:form id="consultaProfesoresForm">
+
+            <div class="query-card">
+
+                <div class="query-toolbar">
+                    <p:inputText styleClass="query-search" placeholder="Buscar por nombre de profesor"/>
+                </div>
+
+                <table class="query-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>RFC</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Luis Armando Jara Lugo</td>
+                        <td>JALL950903HSNSRTA5</td>
+                        <td>
+                            <p:commandButton value="Ver" type="button" styleClass="btn-table"
+                                             onclick="PF('detalleDialog1').show();"/>
+                            <p:commandButton value="Asignar" type="button" styleClass="btn-table-wine"
+                                             onclick="PF('asignarDialog1').show();"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Edwin R. Garcia Curiel</td>
+                        <td>GACE950906HBCSRTA5</td>
+                        <td>
+                            <p:commandButton value="Ver" type="button" styleClass="btn-table"
+                                             onclick="PF('detalleDialog3').show();"/>
+                            <p:commandButton value="Asignar" type="button" styleClass="btn-table-wine"
+                                             onclick="PF('asignarDialog3').show();"/>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <p:dialog widgetVar="detalleDialog1" header="Detalle del profesor"
+                      modal="true" resizable="false" draggable="false" closable="true"
+                      appendTo="@(body)" styleClass="app-dialog detalle-dialog" width="758">
+
+                <div class="detalle-body">
+
+                    <div class="detalle-field">
+                        <span class="detalle-label">ID</span>
+                        <span class="detalle-value">1</span>
+                    </div>
+                    <div class="detalle-field">
+                        <span class="detalle-label">Nombre</span>
+                        <span class="detalle-value">Luis Armando</span>
+                    </div>
+                    <div class="detalle-field">
+                        <span class="detalle-label">Apellido paterno</span>
+                        <span class="detalle-value">Jara</span>
+                    </div>
+                    <div class="detalle-field">
+                        <span class="detalle-label">Apellido materno</span>
+                        <span class="detalle-value">Lugo</span>
+                    </div>
+                    <div class="detalle-field">
+                        <span class="detalle-label">RFC</span>
+                        <span class="detalle-value">JALL950903HSNSRTA5</span>
+                    </div>
+
+                    <h4 class="detalle-subtitle">Asignaciones realizadas</h4>
+
+                    <table class="query-table detalle-table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Grupo</th>
+                            <th>Clase</th>
+                            <th>Taller</th>
+                            <th>Lab</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Desarrollo de Software</td>
+                            <td>141</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <f:facet name="footer">
+                    <div class="detalle-footer">
+                        <p:commandButton value="Asignar" type="button" styleClass="btn-table-wine"
+                                         onclick="PF('detalleDialog1').hide(); PF('asignarDialog1').show();"/>
+                        <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
+                                         onclick="PF('detalleDialog1').hide();"/>
+                    </div>
+                </f:facet>
+
+            </p:dialog>
+
+            <p:dialog widgetVar="detalleDialog3" header="Detalle del profesor"
+                      modal="true" resizable="false" draggable="false" closable="true"
+                      appendTo="@(body)" styleClass="app-dialog detalle-dialog" width="758">
+
+                <div class="detalle-body">
+
+                    <div class="detalle-field">
+                        <span class="detalle-label">ID</span>
+                        <span class="detalle-value">3</span>
+                    </div>
+                    <div class="detalle-field">
+                        <span class="detalle-label">Nombre</span>
+                        <span class="detalle-value">Edwin R.</span>
+                    </div>
+                    <div class="detalle-field">
+                        <span class="detalle-label">Apellido paterno</span>
+                        <span class="detalle-value">Garcia</span>
+                    </div>
+                    <div class="detalle-field">
+                        <span class="detalle-label">Apellido materno</span>
+                        <span class="detalle-value">Curiel</span>
+                    </div>
+                    <div class="detalle-field">
+                        <span class="detalle-label">RFC</span>
+                        <span class="detalle-value">GACE950906HBCSRTA5</span>
+                    </div>
+
+                    <h4 class="detalle-subtitle">Asignaciones realizadas</h4>
+
+                    <table class="query-table detalle-table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Grupo</th>
+                            <th>Clase</th>
+                            <th>Taller</th>
+                            <th>Lab</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td colspan="6" class="detalle-table-empty">Sin asignaciones registradas</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <f:facet name="footer">
+                    <div class="detalle-footer">
+                        <p:commandButton value="Asignar" type="button" styleClass="btn-table-wine"
+                                         onclick="PF('detalleDialog3').hide(); PF('asignarDialog3').show();"/>
+                        <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
+                                         onclick="PF('detalleDialog3').hide();"/>
+                    </div>
+                </f:facet>
+
+            </p:dialog>
+
+            <p:dialog widgetVar="asignarDialog1" header="Asignar UA"
+                      modal="true" resizable="false" draggable="false" closable="true"
+                      appendTo="@(body)" styleClass="app-dialog asignar-dialog" width="759">
+
+                <div class="detalle-body">
+
+                    <span class="asignar-label">Profesor asignado</span>
+                    <div class="asignar-search-row">
+                        <div class="search-wrap">
+                            <i class="pi pi-search search-icon"></i>
+                            <p:inputText styleClass="asignar-search-input" placeholder="Buscar Profesor por ID"/>
+                        </div>
+                        <p:commandButton value="Buscar" type="button" styleClass="asignar-search-btn"/>
+                    </div>
+                    <div class="asignar-selector">
+                        <span>Luis Armando Jara Lugo</span>
+                        <i class="pi pi-chevron-down"></i>
+                    </div>
+
+                    <span class="asignar-label">Unidad de aprendizaje asignada</span>
+                    <div class="asignar-search-row">
+                        <div class="search-wrap">
+                            <i class="pi pi-search search-icon"></i>
+                            <p:inputText styleClass="asignar-search-input" placeholder="Buscar UA por ID"/>
+                        </div>
+                        <p:commandButton value="Buscar" type="button" styleClass="asignar-search-btn"/>
+                    </div>
+                    <div class="asignar-selector">
+                        <span>Desarrollo de Software</span>
+                        <i class="pi pi-chevron-down"></i>
+                    </div>
+
+                    <div class="asignar-grupo-row">
+                        <h:outputLabel value="Grupo" styleClass="asignar-grupo-label"/>
+                        <p:inputText styleClass="asignar-grupo-input" placeholder="141"/>
+                    </div>
+
+                    <h4 class="detalle-subtitle">Agregar horarios</h4>
+
+                    <table class="query-table detalle-table horarios-table">
+                        <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>Hora Inicio</th>
+                            <th>Hora fin</th>
+                            <th>Tipo de Clase</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Lunes <i class="pi pi-chevron-down cell-chevron"></i></td>
+                            <td>10:00 AM</td>
+                            <td>12:00 PM</td>
+                            <td>Clase <i class="pi pi-chevron-down cell-chevron"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Martes <i class="pi pi-chevron-down cell-chevron"></i></td>
+                            <td>11:00 AM</td>
+                            <td>12:00 PM</td>
+                            <td>Laboratorio <i class="pi pi-chevron-down cell-chevron"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Miércoles <i class="pi pi-chevron-down cell-chevron"></i></td>
+                            <td>10:00 AM</td>
+                            <td>12:00 PM</td>
+                            <td>Taller <i class="pi pi-chevron-down cell-chevron"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Jueves <i class="pi pi-chevron-down cell-chevron"></i></td>
+                            <td>10:00 AM</td>
+                            <td>12:00 PM</td>
+                            <td>Laboratorio <i class="pi pi-chevron-down cell-chevron"></i></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <f:facet name="footer">
+                    <div class="asignar-footer">
+                        <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
+                                         onclick="PF('asignarDialog1').hide();"/>
+                        <p:commandButton value="Guardar" type="button" styleClass="btn-table-wine"/>
+                    </div>
+                </f:facet>
+
+            </p:dialog>
+
+
+            <p:dialog widgetVar="asignarDialog3" header="Asignar UA"
+                      modal="true" resizable="false" draggable="false" closable="true"
+                      appendTo="@(body)" styleClass="app-dialog asignar-dialog" width="759">
+
+                <div class="detalle-body">
+
+                    <span class="asignar-label">Profesor asignado</span>
+                    <div class="asignar-search-row">
+                        <div class="search-wrap">
+                            <i class="pi pi-search search-icon"></i>
+                            <p:inputText styleClass="asignar-search-input" placeholder="Buscar Profesor por ID"/>
+                        </div>
+                        <p:commandButton value="Buscar" type="button" styleClass="asignar-search-btn"/>
+                    </div>
+                    <div class="asignar-selector">
+                        <span>Edwin R. Garcia Curiel</span>
+                        <i class="pi pi-chevron-down"></i>
+                    </div>
+
+                    <span class="asignar-label">Unidad de aprendizaje asignada</span>
+                    <div class="asignar-search-row">
+                        <div class="search-wrap">
+                            <i class="pi pi-search search-icon"></i>
+                            <p:inputText styleClass="asignar-search-input" placeholder="Buscar UA por ID"/>
+                        </div>
+                        <p:commandButton value="Buscar" type="button" styleClass="asignar-search-btn"/>
+                    </div>
+                    <div class="asignar-selector">
+                        <span>Selecciona una UA</span>
+                        <i class="pi pi-chevron-down"></i>
+                    </div>
+
+                    <div class="asignar-grupo-row">
+                        <h:outputLabel value="Grupo" styleClass="asignar-grupo-label"/>
+                        <p:inputText styleClass="asignar-grupo-input" placeholder="..."/>
+                    </div>
+
+                    <h4 class="detalle-subtitle">Agregar horarios</h4>
+
+                    <table class="query-table detalle-table horarios-table">
+                        <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>Hora Inicio</th>
+                            <th>Hora fin</th>
+                            <th>Tipo de Clase</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td colspan="4" class="detalle-table-empty">Sin horarios agregados</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <f:facet name="footer">
+                    <div class="asignar-footer">
+                        <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
+                                         onclick="PF('asignarDialog3').hide();"/>
+                        <p:commandButton value="Guardar" type="button" styleClass="btn-table-wine"/>
+                    </div>
+                </f:facet>
+
+            </p:dialog>
+
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

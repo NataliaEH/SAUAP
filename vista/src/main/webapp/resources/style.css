@@ -1,10 +1,763 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-
-.body{
-    background: black;
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
 }
 
+.login-bg {
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.login-bg form {
+    display: contents;
+}
+
+.ui-messages {
+    position: fixed !important;
+    bottom: 24px !important;
+    top: auto !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    width: auto !important;
+    max-width: 90% !important;
+}
+
+.ui-messages .ui-messages-warn,
+.ui-messages .ui-messages-error,
+.ui-messages .ui-messages-info,
+.ui-messages .ui-messages-fatal {
+    background-color: #FFFFFF !important;
+}
+
+.login-card {
+    width: 476px;
+    height: 734px;
+    flex-shrink: 0;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    padding-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-logo {
+    width: 123px;
+    height: 170px;
+    margin-top: 69px;
+}
+
+.login-subtitle {
+    margin: 19px 0 0;
+    width: 335px;
+    text-align: center;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+}
+
+.login-field-usuario {
+    width: 335px;
+    margin-top: 37px;
+}
+
+.login-field-contrasena {
+    width: 335px;
+    margin-top: 17px;
+}
+
+.login-field-usuario label,
+.login-field-contrasena label {
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 7px;
+}
+
+.login-input.ui-inputfield {
+    width: 335px !important;
+    height: 48px !important;
+    box-sizing: border-box;
+    border: 3px solid #A3F7B5 !important;
+    background-color: #FFFFFF !important;
+}
+
+.login-button.ui-button {
+    width: 335px !important;
+    height: 48px !important;
+    margin-top: 68px;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    background-color: #664147 !important;
+    border-color: #664147 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+}
+
+
+.app-shell {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-topbar {
+    height: 85px;
+    width: 100%;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    flex-shrink: 0;
+}
+
+.app-logo-long {
+    width: 173px;
+    height: 60px;
+}
+
+.app-body {
+    display: flex;
+    flex: 1;
+}
+
+.app-sidebar {
+    width: 310px;
+    background-color: #FFFFFF;
+    padding: 24px 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.nav-section-label {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 12px;
+    color: #8A8A8A;
+    margin: 16px 8px 8px;
+}
+
+.nav-item {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 14px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    color: #40C9A2;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-item i {
+    color: #40C9A2;
+}
+
+.nav-item.active {
+    background-color: #40C9A2;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.nav-item.active i {
+    color: #FFFFFF;
+}
+
+.nav-footer {
+    margin-top: auto;
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 14px;
+    padding: 10px 12px;
+    color: #1E1E1E;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-footer i {
+    color: #40C9A2;
+}
+
+.nav-item, .nav-footer {
+    text-decoration: none;
+}
+
+.app-main {
+    flex: 1;
+    padding: 0 32px;
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.welcome-banner {
+    width: 1104px;
+    height: 110px;
+    box-sizing: border-box;
+    background-color: #40C9A2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    margin-top: 55px;
+}
+
+.welcome-date {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 16px;
+    color: #FFFFFF;
+    margin: 0 0 4px;
+}
+
+.welcome-title {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 20px;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.welcome-icon {
+    width: 59px;
+    height: 59px;
+}
+
+.section-title {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 20px;
+    margin: 29px 0 4px;
+    color: #1E1E1E;
+}
+
+.section-subtitle {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 16px;
+    color: #8A8A8A;
+    margin: 0 0 22px;
+}
+
+.content-card {
+    width: 1104px;
+    height: 533px;
+    background-color: #FFFFFF;
+    padding: 32px 32px 42px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+}
+
+.card-title {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 20px;
+    margin: 0 0 4px;
+}
+
+.card-subtitle {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 16px;
+    color: #8A8A8A;
+    margin: 0 0 16px;
+}
+
+.card-divider {
+    border: none;
+    border-top: 1px solid #E5F9E0;
+    margin: 0 0 24px;
+}
+
+.form-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-field label {
+    width: 180px;
+    flex-shrink: 0;
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.form-input-long.ui-inputfield {
+    width: 494px !important;
+    height: 48px !important;
+    box-sizing: border-box;
+    border: 3px solid #A3F7B5 !important;
+    background-color: #FFFFFF !important;
+}
+
+.form-input-short.ui-inputfield {
+    width: 355px !important;
+    height: 48px !important;
+    box-sizing: border-box;
+    border: 3px solid #A3F7B5 !important;
+    background-color: #FFFFFF !important;
+}
+
+.form-select-short.ui-selectonemenu {
+    width: 120px !important;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.btn-primary.ui-button {
+    width: 256px !important;
+    height: 48px !important;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    background-color: #664147 !important;
+    border-color: #664147 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+}
+
+.query-card {
+    width: 1104px;
+    background-color: #FFFFFF;
+    padding: 24px 32px;
+    box-sizing: border-box;
+}
+
+.query-toolbar {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.query-search.ui-inputfield {
+    width: 335px !important;
+    height: 44px !important;
+    box-sizing: border-box;
+    border: 3px solid #A3F7B5 !important;
+    background-color: #FFFFFF !important;
+}
+
+.query-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Martel Sans', sans-serif;
+}
+
+.query-table thead tr {
+    background-color: #40C9A2;
+}
+
+.query-table thead th {
+    color: #FFFFFF;
+    text-align: left;
+    padding: 12px 16px;
+    font-weight: 600;
+}
+
+.query-table tbody tr:nth-child(odd) {
+    background-color: #E5F9E0;
+}
+
+.query-table tbody td {
+    padding: 12px 16px;
+    color: #1E1E1E;
+}
+
+.btn-table.ui-button, .btn-table-wine.ui-button {
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    color: #FFFFFF !important;
+    border: none !important;
+    padding: 6px 14px !important;
+    height: auto !important;
+    margin-right: 8px;
+}
+
+.btn-table.ui-button {
+    background-color: #664147 !important;
+}
+
+.btn-table-wine.ui-button {
+    background-color: #664147 !important;
+}
+
+.app-dialog.ui-dialog {
+    border: none !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+    height: var(--dlg-h) !important;
+    max-height: var(--dlg-h) !important;
+}
+
+/* Tamaño especifico de cada dialogo */
+.detalle-dialog.ui-dialog {
+    width: 758px !important;
+    --dlg-h: min(886px, 90vh);
+}
+
+.asignar-dialog.ui-dialog {
+    width: 759px !important;
+    --dlg-h: min(992px, 90vh);
+}
+
+.app-dialog .ui-dialog-titlebar {
+    background-color: #40C9A2 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-sizing: border-box;
+    height: 85px !important;
+    display: flex;
+    align-items: center;
+    padding: 0 24px !important;
+}
+
+.app-dialog .ui-dialog-title {
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #FFFFFF !important;
+}
+
+.app-dialog .ui-dialog-titlebar-icon,
+.app-dialog .ui-dialog-titlebar-close,
+.app-dialog .ui-dialog-titlebar-close .ui-icon {
+    color: #FFFFFF !important;
+    border-color: transparent !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.app-dialog .ui-dialog-titlebar-icon:hover,
+.app-dialog .ui-dialog-titlebar-close:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    border-color: transparent !important;
+}
+
+.app-dialog .ui-dialog-content {
+    padding: 24px !important;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    height: calc(var(--dlg-h) - 85px - 90px) !important;
+    overflow-y: auto;
+}
+
+.app-dialog .ui-dialog-footer {
+    height: 90px !important;
+    box-sizing: border-box;
+    border: none !important;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    padding: 0 24px !important;
+}
+
+
+.detalle-body .detalle-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.detalle-body .detalle-label {
+    width: 180px;
+    flex-shrink: 0;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #8A8A8A;
+}
+
+.detalle-body .detalle-value {
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #1E1E1E;
+}
+
+.detalle-subtitle {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: #1E1E1E;
+    margin: 20px 0 12px;
+}
+
+.detalle-table {
+    width: 100%;
+}
+
+.detalle-table thead th {
+    padding: 8px 16px !important;
+}
+
+.detalle-table tbody td {
+    padding: 6px 16px !important;
+}
+
+.detalle-table-empty {
+    text-align: center;
+    color: #8A8A8A;
+    font-style: italic;
+}
+
+.detalle-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.btn-cerrar.ui-button {
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    background-color: #664147 !important;
+    border-color: #664147 !important;
+    color: #FFFFFF !important;
+    padding: 6px 20px !important;
+    height: auto !important;
+}
+
+.asignar-label {
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #1E1E1E;
+    margin: 0 0 8px;
+}
+
+.asignar-search-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 639px;
+    margin-bottom: 10px;
+}
+
+.asignar-search-row .search-wrap {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.asignar-search-row .search-wrap .search-icon {
+    position: absolute;
+    left: 14px;
+    color: #A3A3A3;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.asignar-search-input.ui-inputfield {
+    width: 100% !important;
+    height: 48px !important;
+    box-sizing: border-box;
+    border: 3px solid #A3F7B5 !important;
+    background-color: #FFFFFF !important;
+    padding-left: 40px !important;
+}
+
+.asignar-search-btn.ui-button {
+    width: 110px !important;
+    height: 48px !important;
+    flex-shrink: 0;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    background-color: #664147 !important;
+    border-color: #664147 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+}
+
+.asignar-selector {
+    width: 639px;
+    height: 48px;
+    box-sizing: border-box;
+    background-color: #1E1E1E;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    margin-bottom: 24px;
+}
+
+.asignar-selector span {
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.asignar-selector i {
+    color: #FFFFFF;
+    opacity: 0.8;
+}
+
+.asignar-grupo-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.asignar-grupo-row .asignar-grupo-label {
+    width: 180px;
+    flex-shrink: 0;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #1E1E1E;
+}
+
+.asignar-grupo-input.ui-inputfield {
+    width: 425px !important;
+    height: 48px !important;
+    box-sizing: border-box;
+    border: 3px solid #A3F7B5 !important;
+    background-color: #FFFFFF !important;
+}
+
+.horarios-table .cell-chevron {
+    margin-left: 8px;
+    color: #40C9A2;
+    font-size: 11px;
+}
+
+.asignar-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    width: 100%;
+}
+
+.eliminar-dialog.ui-dialog {
+    width: 631px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+}
+
+.eliminar-dialog .ui-dialog-content {
+    height: 456px !important;
+    box-sizing: border-box;
+    padding: 0 !important;
+}
+
+.eliminar-body {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.eliminar-icon {
+    font-size: 40px;
+    color: #B2454F;
+    margin-bottom: 16px;
+}
+
+.eliminar-title {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #1E1E1E;
+    margin: 0 0 20px;
+}
+
+.eliminar-text {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 16px;
+    color: #1E1E1E;
+    line-height: 1.6;
+    margin: 0 0 16px;
+}
+
+.eliminar-note {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 13px;
+    color: #8A8A8A;
+    line-height: 1.5;
+    margin: 0 0 28px;
+}
+
+.eliminar-footer {
+    display: flex;
+    gap: 16px;
+}
+
+.eliminar-footer .ui-button {
+    width: 140px !important;
+    height: 44px !important;
+}
+
+.detalle-ua-dialog.ui-dialog {
+    width: 693px !important;
+    --dlg-h: min(886px, 90vh);
+}
+
+.detalle-horas {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 8px;
+}
+
+.detalle-horas-col {
+    flex: 1;
+    text-align: center;
+}
+
+.horas-label {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 16px;
+    color: #8A8A8A;
+    margin: 0 0 8px;
+}
+
+.horas-value {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #1E1E1E;
+    margin: 0;
+}
+
+.modificar-ua-dialog.ui-dialog {
+    width: 999px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+}
+
+.modificar-ua-dialog .ui-dialog-content {
+    height: 530px !important;
+    box-sizing: border-box;
+    padding: 32px !important;
+}
+
+.modificar-ua-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
