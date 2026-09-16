@@ -2,6 +2,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="jakarta.faces.facelets"
                 xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/templates/layout.xhtml">
 
@@ -14,35 +15,351 @@
         <h2 class="section-title">Consulta General de UA</h2>
         <p class="section-subtitle">Consulta todas las unidades de aprendizaje registradas en el catálogo y su información</p>
 
-        <div class="query-card">
+        <h:form id="consultaUAForm">
 
-            <div class="query-toolbar">
-                <p:inputText styleClass="query-search" placeholder="Buscar por nombre de UA"/>
+            <div class="query-card">
+
+                <div class="query-toolbar">
+                    <p:inputText styleClass="query-search" placeholder="Buscar por nombre de UA"/>
+                </div>
+
+                <table class="query-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Desarrollo de Software</td>
+                        <td>
+                            <p:commandButton value="Ver" type="button" styleClass="btn-table"
+                                             onclick="PF('detalleUADialog1').show();"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Inteligencia Artificial</td>
+                        <td>
+                            <p:commandButton value="Ver" type="button" styleClass="btn-table"
+                                             onclick="PF('detalleUADialog3').show();"/>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
             </div>
 
-            <table class="query-table">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Acciones</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Desarrollo de Software</td>
-                    <td><p:commandButton value="Ver" styleClass="btn-table" ajax="false"/></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Inteligencia Artificial</td>
-                    <td><p:commandButton value="Ver" styleClass="btn-table" ajax="false"/></td>
-                </tr>
-                </tbody>
-            </table>
+            <p:dialog widgetVar="detalleUADialog1" header="Detalle de unidad de aprendizaje"
+                      modal="true" resizable="false" draggable="false" closable="true"
+                      appendTo="@(body)" styleClass="app-dialog detalle-ua-dialog" width="693">
 
-        </div>
+                <div class="detalle-body">
+
+                    <div class="detalle-field">
+                        <span class="detalle-label">ID</span>
+                        <span class="detalle-value">1</span>
+                    </div>
+                    <div class="detalle-field">
+                        <span class="detalle-label">Nombre</span>
+                        <span class="detalle-value">Desarrollo de Software</span>
+                    </div>
+
+                    <h4 class="detalle-subtitle">Distribución de horas</h4>
+
+                    <div class="detalle-horas">
+                        <div class="detalle-horas-col">
+                            <p class="horas-label">Clase</p>
+                            <p class="horas-value">0</p>
+                        </div>
+                        <div class="detalle-horas-col">
+                            <p class="horas-label">Taller</p>
+                            <p class="horas-value">0</p>
+                        </div>
+                        <div class="detalle-horas-col">
+                            <p class="horas-label">Laboratorio</p>
+                            <p class="horas-value">0</p>
+                        </div>
+                    </div>
+
+                    <h4 class="detalle-subtitle">Profesores que la imparten</h4>
+
+                    <table class="query-table detalle-table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>RFC</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Luis Armando Jara Lugo</td>
+                            <td>JALL950903HSNSRTA5</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Edwin R. Garcia Curiel</td>
+                            <td>GACE950906HBCSRTA5</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Monica Cristina Lam Mora</td>
+                            <td>LAMM950903MBCSRTA5</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <f:facet name="footer">
+                    <div class="asignar-footer">
+                        <p:commandButton value="Eliminar" type="button" styleClass="btn-table-wine"
+                                         onclick="PF('detalleUADialog1').hide(); PF('eliminarUADialog1').show();"/>
+                        <p:commandButton value="Modificar" type="button" styleClass="btn-table-wine"
+                                         onclick="PF('detalleUADialog1').hide(); PF('modificarUADialog1').show();"/>
+                        <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
+                                         onclick="PF('detalleUADialog1').hide();"/>
+                    </div>
+                </f:facet>
+
+            </p:dialog>
+
+            <p:dialog widgetVar="detalleUADialog3" header="Detalle de unidad de aprendizaje"
+                      modal="true" resizable="false" draggable="false" closable="true"
+                      appendTo="@(body)" styleClass="app-dialog detalle-ua-dialog" width="693">
+
+                <div class="detalle-body">
+
+                    <div class="detalle-field">
+                        <span class="detalle-label">ID</span>
+                        <span class="detalle-value">3</span>
+                    </div>
+                    <div class="detalle-field">
+                        <span class="detalle-label">Nombre</span>
+                        <span class="detalle-value">Inteligencia Artificial</span>
+                    </div>
+
+                    <h4 class="detalle-subtitle">Distribución de horas</h4>
+
+                    <div class="detalle-horas">
+                        <div class="detalle-horas-col">
+                            <p class="horas-label">Clase</p>
+                            <p class="horas-value">3</p>
+                        </div>
+                        <div class="detalle-horas-col">
+                            <p class="horas-label">Taller</p>
+                            <p class="horas-value">0</p>
+                        </div>
+                        <div class="detalle-horas-col">
+                            <p class="horas-label">Laboratorio</p>
+                            <p class="horas-value">1</p>
+                        </div>
+                    </div>
+
+                    <h4 class="detalle-subtitle">Profesores que la imparten</h4>
+
+                    <table class="query-table detalle-table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>RFC</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td colspan="3" class="detalle-table-empty">Sin profesores asignados</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <f:facet name="footer">
+                    <div class="asignar-footer">
+                        <p:commandButton value="Eliminar" type="button" styleClass="btn-table-wine"
+                                         onclick="PF('detalleUADialog3').hide(); PF('eliminarUADialog3').show();"/>
+                        <p:commandButton value="Modificar" type="button" styleClass="btn-table-wine"
+                                         onclick="PF('detalleUADialog3').hide(); PF('modificarUADialog3').show();"/>
+                        <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
+                                         onclick="PF('detalleUADialog3').hide();"/>
+                    </div>
+                </f:facet>
+
+            </p:dialog>
+
+            <p:dialog widgetVar="eliminarUADialog1" showHeader="false"
+                      modal="true" resizable="false" draggable="false" closable="false"
+                      appendTo="@(body)" styleClass="eliminar-dialog">
+
+                <div class="eliminar-body">
+                    <i class="pi pi-exclamation-triangle eliminar-icon"></i>
+                    <h3 class="eliminar-title">Eliminar Unidad de Aprendizaje</h3>
+                    <p class="eliminar-text">
+                        ¿Deseas eliminar la unidad de aprendizaje<br/>
+                        <b>Desarrollo de Software</b> del<br/>
+                        catálogo?
+                    </p>
+                    <p class="eliminar-note">
+                        Esta UA tiene 3 profesores asignados actualmente, sus asignaciones también se eliminarán.
+                    </p>
+                    <div class="eliminar-footer">
+                        <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
+                                         onclick="PF('eliminarUADialog1').hide();"/>
+                        <p:commandButton value="Aceptar" type="button" styleClass="btn-table-wine"/>
+                    </div>
+                </div>
+
+            </p:dialog>
+
+            <p:dialog widgetVar="eliminarUADialog3" showHeader="false"
+                      modal="true" resizable="false" draggable="false" closable="false"
+                      appendTo="@(body)" styleClass="eliminar-dialog">
+
+                <div class="eliminar-body">
+                    <i class="pi pi-exclamation-triangle eliminar-icon"></i>
+                    <h3 class="eliminar-title">Eliminar Unidad de Aprendizaje</h3>
+                    <p class="eliminar-text">
+                        ¿Deseas eliminar la unidad de aprendizaje<br/>
+                        <b>Inteligencia Artificial</b> del<br/>
+                        catálogo?
+                    </p>
+                    <p class="eliminar-note">
+                        Esta UA no tiene profesores asignados actualmente.
+                    </p>
+                    <div class="eliminar-footer">
+                        <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
+                                         onclick="PF('eliminarUADialog3').hide();"/>
+                        <p:commandButton value="Aceptar" type="button" styleClass="btn-table-wine"/>
+                    </div>
+                </div>
+
+            </p:dialog>
+
+            <p:dialog widgetVar="modificarUADialog1" showHeader="false"
+                      modal="true" resizable="false" draggable="false" closable="false"
+                      appendTo="@(body)" styleClass="modificar-ua-dialog">
+
+                <div class="modificar-ua-body">
+
+                    <h3 class="card-title">Modificar la Unidad de Aprendizaje</h3>
+                    <p class="card-subtitle">Todos los campos son obligatorios</p>
+                    <hr class="card-divider"/>
+
+                    <div class="form-field">
+                        <h:outputLabel value="Nombre" />
+                        <p:inputText styleClass="form-input-long" value="Desarrollo de Software"/>
+                    </div>
+
+                    <div class="form-field">
+                        <h:outputLabel value="Horas Clase" />
+                        <p:selectOneMenu styleClass="form-select-short">
+                            <f:selectItem itemLabel="0" itemValue="0"/>
+                            <f:selectItem itemLabel="1" itemValue="1"/>
+                            <f:selectItem itemLabel="2" itemValue="2"/>
+                            <f:selectItem itemLabel="3" itemValue="3"/>
+                            <f:selectItem itemLabel="4" itemValue="4"/>
+                        </p:selectOneMenu>
+                    </div>
+
+                    <div class="form-field">
+                        <h:outputLabel value="Horas Taller" />
+                        <p:selectOneMenu styleClass="form-select-short">
+                            <f:selectItem itemLabel="0" itemValue="0"/>
+                            <f:selectItem itemLabel="1" itemValue="1"/>
+                            <f:selectItem itemLabel="2" itemValue="2"/>
+                            <f:selectItem itemLabel="3" itemValue="3"/>
+                            <f:selectItem itemLabel="4" itemValue="4"/>
+                        </p:selectOneMenu>
+                    </div>
+
+                    <div class="form-field">
+                        <h:outputLabel value="Horas Laboratorio" />
+                        <p:selectOneMenu styleClass="form-select-short">
+                            <f:selectItem itemLabel="0" itemValue="0"/>
+                            <f:selectItem itemLabel="1" itemValue="1"/>
+                            <f:selectItem itemLabel="2" itemValue="2"/>
+                            <f:selectItem itemLabel="3" itemValue="3"/>
+                            <f:selectItem itemLabel="4" itemValue="4"/>
+                        </p:selectOneMenu>
+                    </div>
+
+                    <div class="form-actions">
+                        <p:commandButton value="Guardar cambios" type="button" styleClass="btn-primary"/>
+                        <p:commandButton value="Reestablecer campos" type="button" styleClass="btn-primary"/>
+                        <p:commandButton value="Cerrar" type="button" styleClass="btn-primary"
+                                         onclick="PF('modificarUADialog1').hide();"/>
+                    </div>
+
+                </div>
+
+            </p:dialog>
+
+            <p:dialog widgetVar="modificarUADialog3" showHeader="false"
+                      modal="true" resizable="false" draggable="false" closable="false"
+                      appendTo="@(body)" styleClass="modificar-ua-dialog">
+
+                <div class="modificar-ua-body">
+
+                    <h3 class="card-title">Modificar la Unidad de Aprendizaje</h3>
+                    <p class="card-subtitle">Todos los campos son obligatorios</p>
+                    <hr class="card-divider"/>
+
+                    <div class="form-field">
+                        <h:outputLabel value="Nombre" />
+                        <p:inputText styleClass="form-input-long" value="Inteligencia Artificial"/>
+                    </div>
+
+                    <div class="form-field">
+                        <h:outputLabel value="Horas Clase" />
+                        <p:selectOneMenu styleClass="form-select-short">
+                            <f:selectItem itemLabel="0" itemValue="0"/>
+                            <f:selectItem itemLabel="1" itemValue="1"/>
+                            <f:selectItem itemLabel="2" itemValue="2"/>
+                            <f:selectItem itemLabel="3" itemValue="3"/>
+                            <f:selectItem itemLabel="4" itemValue="4"/>
+                        </p:selectOneMenu>
+                    </div>
+
+                    <div class="form-field">
+                        <h:outputLabel value="Horas Taller" />
+                        <p:selectOneMenu styleClass="form-select-short">
+                            <f:selectItem itemLabel="0" itemValue="0"/>
+                            <f:selectItem itemLabel="1" itemValue="1"/>
+                            <f:selectItem itemLabel="2" itemValue="2"/>
+                            <f:selectItem itemLabel="3" itemValue="3"/>
+                            <f:selectItem itemLabel="4" itemValue="4"/>
+                        </p:selectOneMenu>
+                    </div>
+
+                    <div class="form-field">
+                        <h:outputLabel value="Horas Laboratorio" />
+                        <p:selectOneMenu styleClass="form-select-short">
+                            <f:selectItem itemLabel="0" itemValue="0"/>
+                            <f:selectItem itemLabel="1" itemValue="1"/>
+                            <f:selectItem itemLabel="2" itemValue="2"/>
+                            <f:selectItem itemLabel="3" itemValue="3"/>
+                            <f:selectItem itemLabel="4" itemValue="4"/>
+                        </p:selectOneMenu>
+                    </div>
+
+                    <div class="form-actions">
+                        <p:commandButton value="Guardar cambios" type="button" styleClass="btn-primary"/>
+                        <p:commandButton value="Reestablecer campos" type="button" styleClass="btn-primary"/>
+                        <p:commandButton value="Cerrar" type="button" styleClass="btn-primary"
+                                         onclick="PF('modificarUADialog3').hide();"/>
+                    </div>
+
+                </div>
+
+            </p:dialog>
+
+        </h:form>
 
     </ui:define>
 

@@ -645,3 +645,119 @@ html, body {
     gap: 12px;
     width: 100%;
 }
+
+.eliminar-dialog.ui-dialog {
+    width: 631px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+}
+
+.eliminar-dialog .ui-dialog-content {
+    height: 456px !important;
+    box-sizing: border-box;
+    padding: 0 !important;
+}
+
+.eliminar-body {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.eliminar-icon {
+    font-size: 40px;
+    color: #B2454F;
+    margin-bottom: 16px;
+}
+
+.eliminar-title {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #1E1E1E;
+    margin: 0 0 20px;
+}
+
+.eliminar-text {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 16px;
+    color: #1E1E1E;
+    line-height: 1.6;
+    margin: 0 0 16px;
+}
+
+.eliminar-note {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 13px;
+    color: #8A8A8A;
+    line-height: 1.5;
+    margin: 0 0 28px;
+}
+
+.eliminar-footer {
+    display: flex;
+    gap: 16px;
+}
+
+.eliminar-footer .ui-button {
+    width: 140px !important;
+    height: 44px !important;
+}
+
+.detalle-ua-dialog.ui-dialog {
+    width: 693px !important;
+    --dlg-h: min(886px, 90vh);
+}
+
+.detalle-horas {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 8px;
+}
+
+.detalle-horas-col {
+    flex: 1;
+    text-align: center;
+}
+
+.horas-label {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 16px;
+    color: #8A8A8A;
+    margin: 0 0 8px;
+}
+
+.horas-value {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #1E1E1E;
+    margin: 0;
+}
+
+.modificar-ua-dialog.ui-dialog {
+    width: 999px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+}
+
+.modificar-ua-dialog .ui-dialog-content {
+    height: 530px !important;
+    box-sizing: border-box;
+    padding: 32px !important;
+}
+
+.modificar-ua-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}

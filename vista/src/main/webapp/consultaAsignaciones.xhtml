@@ -2,6 +2,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="jakarta.faces.facelets"
                 xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/templates/layout.xhtml">
 
@@ -14,47 +15,251 @@
         <h2 class="section-title">Consulta de Asignaciones</h2>
         <p class="section-subtitle">Consulta las asignaciones de profesores a una unidad de aprendizaje</p>
 
-        <div class="query-card">
+        <h:form id="consultaAsignacionesForm">
 
-            <div class="query-toolbar">
-                <p:inputText styleClass="query-search" placeholder="Buscar por Unidad de Aprendizaje"/>
+            <div class="query-card">
+
+                <div class="query-toolbar">
+                    <p:inputText styleClass="query-search" placeholder="Buscar por Unidad de Aprendizaje"/>
+                </div>
+
+                <table class="query-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Unidad de Aprendizaje</th>
+                        <th>Grupo</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Luis Armando Jara Lugo</td>
+                        <td>Desarrollo de Software</td>
+                        <td>141</td>
+                        <td>
+                            <p:commandButton value="Modificar" type="button" styleClass="btn-table-wine"
+                                             onclick="PF('modificarDialog1').show();"/>
+                            <p:commandButton value="Eliminar" type="button" styleClass="btn-table-wine"
+                                             onclick="PF('eliminarDialog1').show();"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Edwin R. Garcia Curiel</td>
+                        <td>Inteligencia Artificial</td>
+                        <td>141</td>
+                        <td>
+                            <p:commandButton value="Modificar" type="button" styleClass="btn-table-wine"
+                                             onclick="PF('modificarDialog2').show();"/>
+                            <p:commandButton value="Eliminar" type="button" styleClass="btn-table-wine"
+                                             onclick="PF('eliminarDialog2').show();"/>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
             </div>
 
-            <table class="query-table">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Unidad de Aprendizaje</th>
-                    <th>Grupo</th>
-                    <th>Acciones</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Luis Armando Jara Lugo</td>
-                    <td>Desarrollo de Software</td>
-                    <td>141</td>
-                    <td>
-                        <p:commandButton value="Modificar" styleClass="btn-table-wine" ajax="false"/>
-                        <p:commandButton value="Eliminar" styleClass="btn-table-wine" ajax="false"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Edwin R. Garcia Curiel</td>
-                    <td>Inteligencia Artificial</td>
-                    <td>141</td>
-                    <td>
-                        <p:commandButton value="Modificar" styleClass="btn-table-wine" ajax="false"/>
-                        <p:commandButton value="Eliminar" styleClass="btn-table-wine" ajax="false"/>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <p:dialog widgetVar="modificarDialog1" header="Modificar asignación"
+                      modal="true" resizable="false" draggable="false" closable="true"
+                      appendTo="@(body)" styleClass="app-dialog asignar-dialog" width="759">
 
-        </div>
+                <div class="detalle-body">
+
+                    <span class="asignar-label">Profesor asignado</span>
+                    <div class="asignar-search-row">
+                        <div class="search-wrap">
+                            <i class="pi pi-search search-icon"></i>
+                            <p:inputText styleClass="asignar-search-input" placeholder="Buscar Profesor por ID"/>
+                        </div>
+                        <p:commandButton value="Buscar" type="button" styleClass="asignar-search-btn"/>
+                    </div>
+                    <div class="asignar-selector">
+                        <span>Luis Armando Jara Lugo</span>
+                        <i class="pi pi-chevron-down"></i>
+                    </div>
+
+                    <span class="asignar-label">Unidad de aprendizaje asignada</span>
+                    <div class="asignar-search-row">
+                        <div class="search-wrap">
+                            <i class="pi pi-search search-icon"></i>
+                            <p:inputText styleClass="asignar-search-input" placeholder="Buscar UA por ID"/>
+                        </div>
+                        <p:commandButton value="Buscar" type="button" styleClass="asignar-search-btn"/>
+                    </div>
+                    <div class="asignar-selector">
+                        <span>Desarrollo de Software</span>
+                        <i class="pi pi-chevron-down"></i>
+                    </div>
+
+                    <div class="asignar-grupo-row">
+                        <h:outputLabel value="Grupo" styleClass="asignar-grupo-label"/>
+                        <p:inputText styleClass="asignar-grupo-input" value="141"/>
+                    </div>
+
+                    <h4 class="detalle-subtitle">Horarios</h4>
+
+                    <table class="query-table detalle-table horarios-table">
+                        <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>Hora Inicio</th>
+                            <th>Hora fin</th>
+                            <th>Tipo de Clase</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Lunes <i class="pi pi-chevron-down cell-chevron"></i></td>
+                            <td>10:00 AM</td>
+                            <td>12:00 PM</td>
+                            <td>Clase <i class="pi pi-chevron-down cell-chevron"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Martes <i class="pi pi-chevron-down cell-chevron"></i></td>
+                            <td>11:00 AM</td>
+                            <td>12:00 PM</td>
+                            <td>Laboratorio <i class="pi pi-chevron-down cell-chevron"></i></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <f:facet name="footer">
+                    <div class="asignar-footer">
+                        <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
+                                         onclick="PF('modificarDialog1').hide();"/>
+                        <p:commandButton value="Guardar" type="button" styleClass="btn-table-wine"/>
+                    </div>
+                </f:facet>
+
+            </p:dialog>
+
+            <p:dialog widgetVar="modificarDialog2" header="Modificar asignación"
+                      modal="true" resizable="false" draggable="false" closable="true"
+                      appendTo="@(body)" styleClass="app-dialog asignar-dialog" width="759">
+
+                <div class="detalle-body">
+
+                    <span class="asignar-label">Profesor asignado</span>
+                    <div class="asignar-search-row">
+                        <div class="search-wrap">
+                            <i class="pi pi-search search-icon"></i>
+                            <p:inputText styleClass="asignar-search-input" placeholder="Buscar Profesor por ID"/>
+                        </div>
+                        <p:commandButton value="Buscar" type="button" styleClass="asignar-search-btn"/>
+                    </div>
+                    <div class="asignar-selector">
+                        <span>Edwin R. Garcia Curiel</span>
+                        <i class="pi pi-chevron-down"></i>
+                    </div>
+
+                    <span class="asignar-label">Unidad de aprendizaje asignada</span>
+                    <div class="asignar-search-row">
+                        <div class="search-wrap">
+                            <i class="pi pi-search search-icon"></i>
+                            <p:inputText styleClass="asignar-search-input" placeholder="Buscar UA por ID"/>
+                        </div>
+                        <p:commandButton value="Buscar" type="button" styleClass="asignar-search-btn"/>
+                    </div>
+                    <div class="asignar-selector">
+                        <span>Inteligencia Artificial</span>
+                        <i class="pi pi-chevron-down"></i>
+                    </div>
+
+                    <div class="asignar-grupo-row">
+                        <h:outputLabel value="Grupo" styleClass="asignar-grupo-label"/>
+                        <p:inputText styleClass="asignar-grupo-input" value="141"/>
+                    </div>
+
+                    <h4 class="detalle-subtitle">Horarios</h4>
+
+                    <table class="query-table detalle-table horarios-table">
+                        <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>Hora Inicio</th>
+                            <th>Hora fin</th>
+                            <th>Tipo de Clase</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Miércoles <i class="pi pi-chevron-down cell-chevron"></i></td>
+                            <td>10:00 AM</td>
+                            <td>12:00 PM</td>
+                            <td>Clase <i class="pi pi-chevron-down cell-chevron"></i></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <f:facet name="footer">
+                    <div class="asignar-footer">
+                        <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
+                                         onclick="PF('modificarDialog2').hide();"/>
+                        <p:commandButton value="Guardar" type="button" styleClass="btn-table-wine"/>
+                    </div>
+                </f:facet>
+
+            </p:dialog>
+
+            <p:dialog widgetVar="eliminarDialog1" showHeader="false"
+                      modal="true" resizable="false" draggable="false" closable="false"
+                      appendTo="@(body)" styleClass="eliminar-dialog">
+
+                <div class="eliminar-body">
+                    <i class="pi pi-exclamation-triangle eliminar-icon"></i>
+                    <h3 class="eliminar-title">Eliminar asignación</h3>
+                    <p class="eliminar-text">
+                        ¿Deseas eliminar la asignación de<br/>
+                        <b>Luis Armando Jara Lugo</b> a<br/>
+                        <b>Desarrollo de Software</b>?
+                    </p>
+                    <p class="eliminar-note">
+                        Se eliminará la asignación al profesor seleccionado.<br/>
+                        El profesor y la unidad de aprendizaje seguirán en sus catálogos.
+                    </p>
+                    <div class="eliminar-footer">
+                        <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
+                                         onclick="PF('eliminarDialog1').hide();"/>
+                        <p:commandButton value="Aceptar" type="button" styleClass="btn-table-wine"/>
+                    </div>
+                </div>
+
+            </p:dialog>
+
+            <p:dialog widgetVar="eliminarDialog2" showHeader="false"
+                      modal="true" resizable="false" draggable="false" closable="false"
+                      appendTo="@(body)" styleClass="eliminar-dialog">
+
+                <div class="eliminar-body">
+                    <i class="pi pi-exclamation-triangle eliminar-icon"></i>
+                    <h3 class="eliminar-title">Eliminar asignación</h3>
+                    <p class="eliminar-text">
+                        ¿Deseas eliminar la asignación de<br/>
+                        <b>Edwin R. Garcia Curiel</b> a<br/>
+                        <b>Inteligencia Artificial</b>?
+                    </p>
+                    <p class="eliminar-note">
+                        Se eliminará la asignación al profesor seleccionado.<br/>
+                        El profesor y la unidad de aprendizaje seguirán en sus catálogos.
+                    </p>
+                    <div class="eliminar-footer">
+                        <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
+                                         onclick="PF('eliminarDialog2').hide();"/>
+                        <p:commandButton value="Aceptar" type="button" styleClass="btn-table-wine"/>
+                    </div>
+                </div>
+
+            </p:dialog>
+
+        </h:form>
 
     </ui:define>
 
