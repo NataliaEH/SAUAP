@@ -8,6 +8,22 @@ import java.util.List;
 public class DelegateProfesor {
     public boolean registrar(String nombre, String apellidoPat, String apellidoMat, String rfc) {
 
+        if (nombre == null || nombre.trim().isEmpty() || nombre.length() > 45) {
+            return false;
+        }
+
+        if (apellidoPat == null || apellidoPat.trim().isEmpty() || apellidoPat.length() > 45) {
+            return false;
+        }
+
+        if (apellidoMat == null || apellidoMat.trim().isEmpty() || apellidoMat.length() > 45) {
+            return false;
+        }
+
+        if (rfc == null || rfc.trim().isEmpty() || rfc.length() > 45) {
+            return false;
+        }
+
         Profesor profesor = new Profesor();
         profesor.setNombre(nombre);
         profesor.setApellidoPat(apellidoPat);
