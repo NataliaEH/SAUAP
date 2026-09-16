@@ -57,7 +57,7 @@ public class AsignacionBean implements Serializable{
     public List<Asignacion> consultar(){
         return asignacionHelper.consultar();
     }
-    public List<Horario> consultarHorarios(int id){ return asignacionHelper.consultarHorarios(id);}
+    public List<Horario> consultarHorarios(int idAsig){ return asignacionHelper.consultarHorarios(idAsig);}
     public void agregarHorario(int idAsig){
         //
     }
