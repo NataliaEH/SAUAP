@@ -396,3 +396,252 @@ html, body {
 .btn-table-wine.ui-button {
     background-color: #664147 !important;
 }
+
+.app-dialog.ui-dialog {
+    border: none !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+    height: var(--dlg-h) !important;
+    max-height: var(--dlg-h) !important;
+}
+
+/* Tamaño especifico de cada dialogo */
+.detalle-dialog.ui-dialog {
+    width: 758px !important;
+    --dlg-h: min(886px, 90vh);
+}
+
+.asignar-dialog.ui-dialog {
+    width: 759px !important;
+    --dlg-h: min(992px, 90vh);
+}
+
+.app-dialog .ui-dialog-titlebar {
+    background-color: #40C9A2 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-sizing: border-box;
+    height: 85px !important;
+    display: flex;
+    align-items: center;
+    padding: 0 24px !important;
+}
+
+.app-dialog .ui-dialog-title {
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #FFFFFF !important;
+}
+
+.app-dialog .ui-dialog-titlebar-icon,
+.app-dialog .ui-dialog-titlebar-close,
+.app-dialog .ui-dialog-titlebar-close .ui-icon {
+    color: #FFFFFF !important;
+    border-color: transparent !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.app-dialog .ui-dialog-titlebar-icon:hover,
+.app-dialog .ui-dialog-titlebar-close:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    border-color: transparent !important;
+}
+
+.app-dialog .ui-dialog-content {
+    padding: 24px !important;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    height: calc(var(--dlg-h) - 85px - 90px) !important;
+    overflow-y: auto;
+}
+
+.app-dialog .ui-dialog-footer {
+    height: 90px !important;
+    box-sizing: border-box;
+    border: none !important;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    padding: 0 24px !important;
+}
+
+
+.detalle-body .detalle-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.detalle-body .detalle-label {
+    width: 180px;
+    flex-shrink: 0;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #8A8A8A;
+}
+
+.detalle-body .detalle-value {
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #1E1E1E;
+}
+
+.detalle-subtitle {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: #1E1E1E;
+    margin: 20px 0 12px;
+}
+
+.detalle-table {
+    width: 100%;
+}
+
+.detalle-table thead th {
+    padding: 8px 16px !important;
+}
+
+.detalle-table tbody td {
+    padding: 6px 16px !important;
+}
+
+.detalle-table-empty {
+    text-align: center;
+    color: #8A8A8A;
+    font-style: italic;
+}
+
+.detalle-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.btn-cerrar.ui-button {
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    background-color: #664147 !important;
+    border-color: #664147 !important;
+    color: #FFFFFF !important;
+    padding: 6px 20px !important;
+    height: auto !important;
+}
+
+.asignar-label {
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #1E1E1E;
+    margin: 0 0 8px;
+}
+
+.asignar-search-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 639px;
+    margin-bottom: 10px;
+}
+
+.asignar-search-row .search-wrap {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.asignar-search-row .search-wrap .search-icon {
+    position: absolute;
+    left: 14px;
+    color: #A3A3A3;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.asignar-search-input.ui-inputfield {
+    width: 100% !important;
+    height: 48px !important;
+    box-sizing: border-box;
+    border: 3px solid #A3F7B5 !important;
+    background-color: #FFFFFF !important;
+    padding-left: 40px !important;
+}
+
+.asignar-search-btn.ui-button {
+    width: 110px !important;
+    height: 48px !important;
+    flex-shrink: 0;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    background-color: #664147 !important;
+    border-color: #664147 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+}
+
+.asignar-selector {
+    width: 639px;
+    height: 48px;
+    box-sizing: border-box;
+    background-color: #1E1E1E;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    margin-bottom: 24px;
+}
+
+.asignar-selector span {
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.asignar-selector i {
+    color: #FFFFFF;
+    opacity: 0.8;
+}
+
+.asignar-grupo-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.asignar-grupo-row .asignar-grupo-label {
+    width: 180px;
+    flex-shrink: 0;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #1E1E1E;
+}
+
+.asignar-grupo-input.ui-inputfield {
+    width: 425px !important;
+    height: 48px !important;
+    box-sizing: border-box;
+    border: 3px solid #A3F7B5 !important;
+    background-color: #FFFFFF !important;
+}
+
+.horarios-table .cell-chevron {
+    margin-left: 8px;
+    color: #40C9A2;
+    font-size: 11px;
+}
+
+.asignar-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    width: 100%;
+}
