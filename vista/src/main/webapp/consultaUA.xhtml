@@ -153,7 +153,11 @@
 
                                 <div class="form-field">
                                     <h:outputLabel value="Nombre" />
-                                    <p:inputText styleClass="form-input-long" value="#{u.nombre}"/>
+                                    <p:inputText styleClass="form-input-long" value="#{u.nombre}"
+                                                 maxlength="50" minlength="3"
+                                                 pattern="(?=.*[A-Za-z])[A-Za-záéíóúÁÉÍÓÚñÑ\s-0-9]"
+                                                 required="true"
+                                                 requiredMessage="Ingresa el nombre de la Unidad de Aprendizaje."/>
                                 </div>
 
                                 <div class="form-field">
@@ -195,7 +199,8 @@
                                                      process="@form"
                                                      update="messages uaTable"
                                                      ajax="true"/>
-                                    <p:commandButton value="Reestablecer campos" type="button" styleClass="btn-primary"/>
+                                    <p:commandButton value="Reestablecer campos" styleClass="btn-primary"
+                                                    process="@none" update="modificarUADialog#{u.id}" ajax="true"/>
                                     <p:commandButton value="Cerrar" type="button" styleClass="btn-primary"
                                                      onclick="PF('modificarUADialog#{u.id}').hide();"/>
                                 </div>

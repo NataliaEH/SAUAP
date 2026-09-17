@@ -8,6 +8,10 @@ import java.util.List;
 public class DelegateUA {
 
     public boolean registrar(String nombre, int horasClase, int horasTaller, int horasLab) {
+        if (nombre == null || nombre.trim().isEmpty() || nombre.length() > 50) {
+            return false;
+        }
+
         UnidadAprendizaje ua = new UnidadAprendizaje();
 
         ua.setNombre(nombre);

@@ -6,6 +6,7 @@ import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import mx.desarrollo.entity.Profesor;
+import mx.desarrollo.entity.UnidadAprendizaje;
 import mx.desarrollo.helper.ProfesorHelper;
 
 import java.io.IOException;
@@ -27,6 +28,13 @@ public class ProfesorBean implements Serializable{
     }
 
     public void registrar(){
+        for(Profesor p: consultar()){
+            if(p.getRfc().equalsIgnoreCase(profesor.getRfc()) || p.getNombre().equalsIgnoreCase(profesor.getNombre())){
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de registro:", "Profesor ya existe en el catálogo."));
+                return;
+            }
+        }
+
         boolean validado = profesorHelper.validarRFC(profesor.getRfc());
         if(!validado){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de formato:", "Formato RFC incorrecto."));

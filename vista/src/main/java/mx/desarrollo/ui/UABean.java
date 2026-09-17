@@ -27,6 +27,13 @@ public class UABean implements Serializable{
     }
 
     public void registrar(){
+        for(UnidadAprendizaje u:uas){
+            if(u.getNombre().equalsIgnoreCase(ua.getNombre())){
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de registro:", "UA ya existe en el catálogo."));
+                return;
+            }
+        }
+
         boolean registrado = uaHelper.registrar(ua.getNombre(), ua.getHorasClase(), ua.getHorasTaller(), ua.getHorasLaboratorio());
         if(registrado){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "UA registrada:", "La UA se agregó al catálogo."));
@@ -37,6 +44,13 @@ public class UABean implements Serializable{
         }
     }
     public void modificar(int id, String nombre, int horasClase, int horasTaller, int horasLab){
+        for(UnidadAprendizaje u:uas){
+            if(u.getNombre().equalsIgnoreCase(nombre)){
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de modificación:", "UA ya existe en el catálogo."));
+                return;
+            }
+        }
+
         boolean modificado = uaHelper.modificar(id, nombre, horasClase, horasTaller, horasLab);
         if(modificado){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "UA modificada:", "La UA se modificó en el catálogo."));

@@ -31,7 +31,7 @@
                                  styleClass="form-input-long"
                                  placeholder="Nombre de la UA"
                                  value="#{uaUI.UA.nombre}"
-                                 maxlength="50"
+                                 maxlength="50" minlength="3" pattern="(?=.*[A-Za-z])[A-Za-záéíóúÁÉÍÓÚñÑ\s-0-9]"
                                  required="true"
                                  requiredMessage="Ingresa el nombre de la Unidad de Aprendizaje."/>
                 </div>
@@ -89,7 +89,7 @@
                                      styleClass="btn-primary"
                                      action="#{uaUI.registrar}"
                                      process="@form"
-                                     update="messages"
+                                     update="messages @form"
                                      ajax="true"/>
                     <p:commandButton value="Limpiar campos"
                                      type="reset"

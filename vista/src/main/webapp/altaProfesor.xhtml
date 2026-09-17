@@ -30,7 +30,8 @@
                                  styleClass="form-input-long"
                                  placeholder="Nombre del profesor"
                                  value="#{profesorUI.profesor.nombre}"
-                                 required="true"
+                                 required="true" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s-]+"
+                                 maxlength="50" minlength="1"
                                  requiredMessage="Ingresa el nombre del profesor."/>
                 </div>
 
@@ -40,7 +41,8 @@
                                  styleClass="form-input-long"
                                  placeholder="Apellido paterno"
                                  value="#{profesorUI.profesor.apellidoPat}"
-                                 required="true"
+                                 required="true" maxlength="50" minlength="1"
+                                 pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s-]+"
                                  requiredMessage="Ingresa el apellido paterno."/>
                 </div>
 
@@ -50,7 +52,8 @@
                                  styleClass="form-input-long"
                                  placeholder="Apellido materno"
                                  value="#{profesorUI.profesor.apellidoMat}"
-                                 required="true"
+                                 required="true" maxlength="50" minlength="1"
+                                 pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s-]"
                                  requiredMessage="Ingresa el apellido materno."/>
                 </div>
 
@@ -60,7 +63,7 @@
                                  styleClass="form-input-short"
                                  placeholder="..."
                                  value="#{profesorUI.profesor.rfc}"
-                                 maxlength="13"
+                                 maxlength="13" pattern="[A-Za-z0-9]"
                                  required="true"
                                  requiredMessage="Ingresa el RFC del profesor."/>
                 </div>
@@ -70,7 +73,7 @@
                                      styleClass="btn-primary"
                                      action="#{profesorUI.registrar}"
                                      process="@form"
-                                     update="messages"
+                                     update="messages @form"
                                      ajax="true"/>
                     <p:commandButton value="Limpiar campos"
                                      type="reset"
