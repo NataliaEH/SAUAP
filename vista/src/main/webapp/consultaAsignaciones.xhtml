@@ -54,8 +54,15 @@
 
                     <p:column headerText="Acciones">
 
-                        <p:commandButton value="Modificar" type="button" styleClass="btn-table-wine"
-                                         onclick="PF('modificarDialog#{a.id}').show();"/>
+                        <p:commandButton value="Modificar" styleClass="btn-table-wine"
+                                         process="@this"
+                                         oncomplete="PF('modificarDialog#{a.id}').show();"
+                                         ajax="true">
+                            <f:setPropertyActionListener target="#{asignacionUI.asignacion.profesor}" value="#{a.profesor}"/>
+                            <f:setPropertyActionListener target="#{asignacionUI.asignacion.unidadAprendizaje}" value="#{a.unidadAprendizaje}"/>
+                            <f:setPropertyActionListener target="#{asignacionUI.asignacion.grupo}" value="#{a.grupo}"/>
+                            <f:setPropertyActionListener target="#{asignacionUI.asignacion.horarios}" value="#{a.horarios}"/>
+                        </p:commandButton>
                         <p:commandButton value="Eliminar" type="button" styleClass="btn-table-wine"
                                          onclick="PF('eliminarDialog#{a.id}').show();"/>
 
@@ -65,15 +72,14 @@
 
                             <div class="detalle-body">
 
-                                <span class="asignar-label">Profesor asignado</span>
-                                <p:selectOneMenu value="#{a.profesor}" filter="true" filterMatchMode="contains" filterPlaceholder="Buscar profesor...">
+                                <p:selectOneMenu value="#{asignacionUI.asignacion.profesor}" filter="true" filterMatchMode="contains" filterPlaceholder="Buscar profesor...">
                                     <f:selectItems value="#{profesorUI.consultar()}" var="prof"
                                                    itemLabel="#{prof.nombre} #{prof.apellidoPat} #{prof.apellidoMat}"
                                                    itemValue="#{prof}"/>
                                 </p:selectOneMenu>
 
                                 <span class="asignar-label">Unidad de aprendizaje asignada</span>
-                                <p:selectOneMenu value="#{a.unidadAprendizaje}" filter="true" filterMatchMode="contains" filterPlaceholder="Buscar UA...">
+                                <p:selectOneMenu value="#{asignacionUI.asignacion.unidadAprendizaje}" filter="true" filterMatchMode="contains" filterPlaceholder="Buscar UA...">
                                     <f:selectItems value="#{uaUI.consultar()}" var="uaItem"
                                                    itemLabel="#{uaItem.nombre}"
                                                    itemValue="#{uaItem}"/>
@@ -81,7 +87,7 @@
 
                                 <div class="asignar-grupo-row">
                                     <h:outputLabel value="Grupo" styleClass="asignar-grupo-label"/>
-                                    <p:inputText styleClass="asignar-grupo-input" placeholder="..." disabled="true"/>
+                                    <p:inputText styleClass="asignar-grupo-input" placeholder="..." value="#{asignacionUI.asignacion.grupo}"/>
                                 </div>
 
                                 <h4 class="detalle-subtitle">Horarios</h4>
@@ -113,7 +119,12 @@
                                 <div class="asignar-footer">
                                     <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
                                                      onclick="PF('modificarDialog#{a.id}').hide();"/>
-                                    <p:commandButton value="Guardar" type="button" styleClass="btn-table-wine" disabled="true"/>
+                                    <p:commandButton value="Guardar" styleClass="btn-table-wine"
+                                                     action="#{asignacionUI.modificar(a.id)}"
+                                                     process="@form"
+                                                     update="messages asignacionesTable"
+                                                     oncomplete="PF('modificarDialog#{a.id}').hide();"
+                                                     ajax="true"/>
                                 </div>
                             </f:facet>
 
