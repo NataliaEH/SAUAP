@@ -23,10 +23,6 @@
 
                 <p:dataTable id="uaTable" widgetVar="uaTableWidget"
                              var="u" value="#{uaUI.consultar()}"
-                             paginator="true" rows="10"
-                             rowsPerPageTemplate="5,10,100,200"
-                             paginatorTemplate="{RowsPerPageDropdown}"
-                             paginatorPosition="top"
                              styleClass="query-table">
 
                     <f:facet name="header">
@@ -135,7 +131,11 @@
                                 <div class="eliminar-footer">
                                     <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
                                                      onclick="PF('eliminarUADialog#{u.id}').hide();"/>
-                                    <p:commandButton value="Aceptar" type="button" styleClass="btn-table-wine"/>
+                                    <p:commandButton value="Aceptar"
+                                                     action="#{uaUI.eliminar(u.id)}"
+                                                     process="@this"
+                                                     update="messages uaTable"
+                                                     oncomplete="PF('eliminarUADialog#{u.id}').hide();"/>
                                 </div>
                             </div>
 

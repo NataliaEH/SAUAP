@@ -21,10 +21,6 @@
 
                 <p:dataTable id="profesoresTable" widgetVar="profesoresTableWidget"
                              var="p" value="#{profesorUI.consultar()}"
-                             paginator="true" rows="10"
-                             rowsPerPageTemplate="5,10,100,200"
-                             paginatorTemplate="{RowsPerPageDropdown}"
-                             paginatorPosition="top"
                              styleClass="query-table">
 
                     <f:facet name="header">
@@ -129,17 +125,11 @@
                                 </div>
 
                                 <span class="asignar-label">Unidad de aprendizaje asignada</span>
-                                <div class="asignar-search-row">
-                                    <div class="search-wrap">
-                                        <i class="pi pi-search search-icon"></i>
-                                        <p:inputText styleClass="asignar-search-input" placeholder="Buscar UA por ID"/>
-                                    </div>
-                                    <p:commandButton value="Buscar" type="button" styleClass="asignar-search-btn"/>
-                                </div>
-                                <div class="asignar-selector">
-                                    <span>Selecciona una UA</span>
-                                    <i class="pi pi-chevron-down"></i>
-                                </div>
+                                <p:selectOneMenu filter="true" filterMatchMode="contains" filterPlaceholder="Buscar UA...">
+                                    <f:selectItems value="#{uaUI.consultar()}" var="uaItem"
+                                                   itemLabel="#{uaItem.nombre}"
+                                                   itemValue="#{uaItem}"/>
+                                </p:selectOneMenu>
 
                                 <div class="asignar-grupo-row">
                                     <h:outputLabel value="Grupo" styleClass="asignar-grupo-label"/>
