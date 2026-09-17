@@ -7,7 +7,7 @@ import java.util.List;
 
 public class DelegateUsuario {
     public Usuario iniciarSesion(String usuario, String contrasena) {
-        Usuario usuarioEncontrado = new Usuario();
+        Usuario usuarioEncontrado = null;
         List<Usuario> usuarios = ServiceLocator.getInstanceUsuarioDAO().findAll();
 
         for (Usuario us : usuarios) {

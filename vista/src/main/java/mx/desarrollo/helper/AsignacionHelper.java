@@ -27,9 +27,9 @@ public class AsignacionHelper implements Serializable {
         return ServiceFacadeLocator.getInstanceFacadeAsignacion().buscar(id);
     }
     public List<Asignacion> consultar(){
-        return ServiceFacadeLocator.getInstanceFacadeAsignacion().consultar();
+        return ServiceFacadeLocator.getInstanceFacadeAsignacion().listar();
     }
     public List<Horario> consultarHorarios(int id){
-        return ServiceFacadeLocator.getInstanceFacadeAsignacion().consultarHorarios(id);
+        return ServiceFacadeLocator.getInstanceFacadeAsignacion().listarHorarios(id);
     }
 }

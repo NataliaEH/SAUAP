@@ -27,9 +27,15 @@ public class ProfesorBean implements Serializable{
     }
 
     public void registrar(){
+        boolean validado = profesorHelper.validarRFC(profesor.getRfc());
+        if(!validado){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de formato:", "Formato RFC incorrecto."));
+            return;
+        }
         boolean registrado = profesorHelper.registrar(profesor.getNombre(), profesor.getApellidoPat(), profesor.getApellidoMat(), profesor.getRfc());
         if(registrado){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Profesor registrado:", "El profesor se agregó al catálogo."));
+            profesor = new Profesor();
         }else{
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de registro:", "Hubo un error al hacer el registro en la BD."));
         }

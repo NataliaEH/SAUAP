@@ -17,6 +17,9 @@ public class FacadeProfesor {
     public boolean registrar(String nombre, String apellidoPat, String apellidoMat, String rfc) {
         return delegateProfesor.registrar(nombre, apellidoPat, apellidoMat, rfc);
     }
+    public boolean validarRFC(String rfc){
+        return delegateProfesor.validarRFC(rfc);
+    }
 
     public Profesor buscar(int id) {
         return delegateProfesor.buscar(id);
