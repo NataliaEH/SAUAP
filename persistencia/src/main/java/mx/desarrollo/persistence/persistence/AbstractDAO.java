@@ -1,9 +1,6 @@
 package mx.desarrollo.persistence.persistence;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.NoResultException;
-import jakarta.persistence.StoredProcedureQuery;
+import jakarta.persistence.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,7 +28,16 @@ public abstract class AbstractDAO<T> {
 
     // Update an existing entity
     public void update(T entity) {
-        executeInsideTransaction(em -> em.merge(entity));
+        //executeInsideTransaction(em -> em.merge(entity));
+
+        System.out.println("DAO UPDATE: " + entity);
+        executeInsideTransaction(em -> {
+            System.out.println("ANTES MERGE");
+            T resultado = em.merge(entity);
+            System.out.println("DESPUES MERGE");
+            em.flush();
+            System.out.println("DESPUES FLUSH");
+        });
     }
 
     // Delete an entity
@@ -56,10 +62,16 @@ public abstract class AbstractDAO<T> {
 
     // Find all
     public List<T> findAll() {
-        return execute(em ->
+        /*return execute(em ->
                 em.createQuery("SELECT e FROM " + entityClass.getSimpleName() + " e", entityClass)
                         .getResultList()
-        );
+        );*/
+        return execute(em -> {
+            em.setFlushMode(FlushModeType.COMMIT);
+            return em.createQuery(
+                    "SELECT e FROM " + entityClass.getSimpleName() + " e", entityClass)
+                    .getResultList();
+        });
     }
 
     public T saveOrUpdate(T entity) {

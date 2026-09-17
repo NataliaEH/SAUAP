@@ -20,38 +20,32 @@ public class UnidadAprendizaje {
     private String nombre;
 
     @Column(name = "horas_clase", nullable = false)
-    private Integer horasClase;
+    private int horasClase;
 
     @Column(name = "horas_taller", nullable = false)
-    private Integer horasTaller;
+    private int horasTaller;
 
     @Column(name = "horas_lab", nullable = false)
-    private Integer horasLaboratorio;
+    private int horasLaboratorio;
 
     @OneToMany(mappedBy = "unidadAprendizaje")
     private List<Asignacion> asignaciones;
 
     public Integer getId() {return id;}
-
     public void setId(Integer id) {this.id = id;}
 
     public String getNombre() {return nombre;}
-
     public void setNombre(String nombre) {this.nombre = nombre;}
 
-    public Integer getHorasClase() {return horasClase;}
+    public int getHorasClase() {return horasClase;}
+    public void setHorasClase(int horasClase){this.horasClase = horasClase;}
 
-    public void setHorasClase(Integer horasClase){this.horasClase = horasClase;}
+    public int getHorasTaller() {return horasTaller;}
+    public void setHorasTaller(int horasTaller){this.horasTaller = horasTaller;}
 
-    public Integer getHorasTaller() {return horasTaller;}
-
-    public void setHorasTaller(Integer horasTaller){this.horasTaller = horasTaller;}
-
-    public Integer getHorasLaboratorio() {return horasLaboratorio;}
-
-    public void setHorasLaboratorio(Integer horasLaboratorio){this.horasLaboratorio = horasLaboratorio;}
+    public int getHorasLaboratorio() {return horasLaboratorio;}
+    public void setHorasLaboratorio(int horasLaboratorio){this.horasLaboratorio = horasLaboratorio;}
 
     public List<Asignacion> getAsignaciones() {return asignaciones;}
-
     public void setAsignaciones(List<Asignacion> asignaciones) {this.asignaciones = asignaciones;}
 }

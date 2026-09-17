@@ -22,22 +22,24 @@ public class Asignacion {
     @JoinColumn(name = "id_ua")
     private UnidadAprendizaje unidadAprendizaje;
 
+    @Column(name = "grupo", nullable = false)
+    private Integer grupo;
+
     @OneToMany(mappedBy = "asignacion")
     private List<Horario> horarios;
 
     public Integer getId() {return id;}
-
     public void setId(Integer id) {this.id = id;}
 
     public Profesor getProfesor() {return profesor;}
-
     public void setProfesor(Profesor profesor){this.profesor = profesor;}
 
     public UnidadAprendizaje getUnidadAprendizaje(){return unidadAprendizaje;}
-
     public void setUnidadAprendizaje(UnidadAprendizaje unidadAprendizaje) {this.unidadAprendizaje = unidadAprendizaje;}
 
-    public List<Horario> getHorarios() {return horarios;}
+    public Integer getGrupo(){return grupo;}
+    public void setGrupo(Integer grupo){this.grupo = grupo;}
 
+    public List<Horario> getHorarios() {return horarios;}
     public void setHorarios(List<Horario> horarios) {this.horarios = horarios;}
 }

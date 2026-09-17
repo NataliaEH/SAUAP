@@ -20,6 +20,7 @@ public class FacadeUA {
     }
 
     public boolean modificar(int id, String nombre, int horasClase, int horasTaller, int horasLab) {
+        System.out.println("calling");
         return delegateUA.modificar(id, nombre, horasClase, horasTaller, horasLab);
     }
 

@@ -19,6 +19,8 @@
 
             <div class="query-card">
 
+                <p:messages id="messages" showDetail="true" closable="true" globalOnly="true" />
+
                 <p:dataTable id="profesoresTable" widgetVar="profesoresTableWidget"
                              var="p" value="#{profesorUI.consultar()}"
                              styleClass="query-table">
@@ -160,7 +162,11 @@
                                 <div class="asignar-footer">
                                     <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
                                                      onclick="PF('asignarDialog#{p.id}').hide();"/>
-                                    <p:commandButton value="Guardar" type="button" styleClass="btn-table-wine"/>
+                                    <p:commandButton value="Guardar" styleClass="btn-table-wine"
+                                                     action="#{asignacionUI.asignar()}"
+                                                     process="@form"
+                                                     update="messages profesoresTable"
+                                                     ajax="true"/>
                                 </div>
                             </f:facet>
 

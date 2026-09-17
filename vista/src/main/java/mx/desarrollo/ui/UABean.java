@@ -35,6 +35,7 @@ public class UABean implements Serializable{
         }
     }
     public void modificar(int id){
+        System.out.println("MODIFICANDO");
         boolean modificado = uaHelper.modificar(id, ua.getNombre(), ua.getHorasClase(), ua.getHorasTaller(), ua.getHorasLaboratorio());
         if(modificado){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "UA modificada:", "La UA se modificó en el catálogo."));

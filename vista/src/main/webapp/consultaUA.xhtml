@@ -190,7 +190,11 @@
                                 </div>
 
                                 <div class="form-actions">
-                                    <p:commandButton value="Guardar cambios" type="button" styleClass="btn-primary"/>
+                                    <p:commandButton value="Guardar cambios" styleClass="btn-primary"
+                                                     action="#{uaUI.modificar(u.id)}"
+                                                     process="@form"
+                                                     update="messages uaTable"
+                                                     ajax="true"/>
                                     <p:commandButton value="Reestablecer campos" type="button" styleClass="btn-primary"/>
                                     <p:commandButton value="Cerrar" type="button" styleClass="btn-primary"
                                                      onclick="PF('modificarUADialog#{u.id}').hide();"/>

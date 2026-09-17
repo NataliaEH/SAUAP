@@ -24,7 +24,6 @@ public class DelegateUA {
     }
 
     public boolean modificar(int id, String nombre, int horasClase, int horasTaller, int horasLab) {
-
         if (nombre == null || nombre.trim().isEmpty() || nombre.length() > 45) {
             return false;
         }
@@ -37,6 +36,7 @@ public class DelegateUA {
         ua.setHorasLaboratorio(horasLab);
         try {
             ServiceLocator.getInstanceUnidadAprendizajeDAO().update(ua);
+            System.out.println("DESPUES DE LLAMAR DAO");
             return true;
         } catch (Exception e) {
             return false;
@@ -62,6 +62,6 @@ public class DelegateUA {
     }
 
     public List<UnidadAprendizaje> consultar() {
-        return ServiceLocator.getInstanceUnidadAprendizajeDAO().obtenerTodos();
+        return ServiceLocator.getInstanceUnidadAprendizajeDAO().findAll();
     }
 }
