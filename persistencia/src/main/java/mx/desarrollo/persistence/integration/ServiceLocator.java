@@ -30,48 +30,28 @@ public class ServiceLocator {
      * se crea la instancia de profesorDAO si esta no existe
      */
     public static ProfesorDAO getInstanceProfesorDAO(){
-        if(profesorDAO == null){
-            profesorDAO = new ProfesorDAO(getEntityManager());
-            return profesorDAO;
-        } else{
-            return profesorDAO;
-        }
+        return new ProfesorDAO(getEntityManager());
     }
 
     /**
      * se crea la instancia de horarioDAO si esta no existe
      */
     public static HorarioDAO getInstanceHorarioDAO(){
-        if(horarioDAO == null){
-            horarioDAO = new HorarioDAO(getEntityManager());
-            return horarioDAO;
-        } else{
-            return horarioDAO;
-        }
+        return new HorarioDAO(getEntityManager());
     }
 
     /**
      * se crea la instancia de unidad_de_aprendizajeDAO si esta no existe
      */
     public static UnidadAprendizajeDAO getInstanceUnidadAprendizajeDAO() {
-        if (unidadAprendizajeDAO == null) {
-            unidadAprendizajeDAO = new UnidadAprendizajeDAO(getEntityManager());
-            return unidadAprendizajeDAO;
-        } else {
-            return unidadAprendizajeDAO;
-        }
+        return new UnidadAprendizajeDAO(getEntityManager());
     }
 
     /**
      * se crea la instancia para asignacionDAO si esta no existe
      */
     public static AsignacionDAO getInstanceAsignacionDAO () {
-        if (asignacionDAO == null) {
-            asignacionDAO = new AsignacionDAO(getEntityManager());
-            return asignacionDAO;
-        } else {
-            return asignacionDAO;
-        }
+        return new AsignacionDAO(getEntityManager());
     }
 
     /**

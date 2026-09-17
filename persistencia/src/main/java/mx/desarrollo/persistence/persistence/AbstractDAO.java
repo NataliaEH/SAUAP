@@ -28,16 +28,7 @@ public abstract class AbstractDAO<T> {
 
     // Update an existing entity
     public void update(T entity) {
-        //executeInsideTransaction(em -> em.merge(entity));
-
-        System.out.println("DAO UPDATE: " + entity);
-        executeInsideTransaction(em -> {
-            System.out.println("ANTES MERGE");
-            T resultado = em.merge(entity);
-            System.out.println("DESPUES MERGE");
-            em.flush();
-            System.out.println("DESPUES FLUSH");
-        });
+        executeInsideTransaction(em -> em.merge(entity));
     }
 
     // Delete an entity
@@ -62,16 +53,10 @@ public abstract class AbstractDAO<T> {
 
     // Find all
     public List<T> findAll() {
-        /*return execute(em ->
+        return execute(em ->
                 em.createQuery("SELECT e FROM " + entityClass.getSimpleName() + " e", entityClass)
                         .getResultList()
-        );*/
-        return execute(em -> {
-            em.setFlushMode(FlushModeType.COMMIT);
-            return em.createQuery(
-                    "SELECT e FROM " + entityClass.getSimpleName() + " e", entityClass)
-                    .getResultList();
-        });
+        );
     }
 
     public T saveOrUpdate(T entity) {

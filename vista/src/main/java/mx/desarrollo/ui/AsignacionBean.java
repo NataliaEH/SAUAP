@@ -1,9 +1,9 @@
 package mx.desarrollo.ui;
 
 import jakarta.annotation.PostConstruct;
-import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
+import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import mx.desarrollo.entity.Asignacion;
 import mx.desarrollo.entity.Horario;
@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Named("asignacionUI")
-@SessionScoped
+@ViewScoped
 public class AsignacionBean implements Serializable{
     private AsignacionHelper asignacionHelper;
     private Asignacion asignacion;
