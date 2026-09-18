@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                template="/WEB-INF/templates/layout.xhtml">
+
+    <ui:param name="activePage" value="asignaciones"/>
+
+    <ui:define name="title">SAUAP - Alta de Asignaciones</ui:define>
+
+    <ui:define name="content">
+
+        <h2 class="section-title">Alta de Asignación</h2>
+        <p class="section-subtitle">Realiza una asignación de una UA a un docente.</p>
+
+        <h:form id="asigForm">
+
+            <p:messages id="messages" showDetail="true" closable="true" globalOnly="false" />
+
+            <div class="content-card">
+
+                <h3 class="card-title">Datos de la asignación</h3>
+                <p class="card-subtitle">Todos los campos son obligatorios</p>
+                <hr class="card-divider"/>
+
+                <div class="form-field">
+                    <h:outputLabel for="profesor" value="Profesor asignado" />
+                    <p:selectOneMenu id="profesor" value="#{asignacionUI.idProfesor}" filter="true" filterMatchMode="contains" filterPlaceholder="Buscar profesor...">
+                        <f:selectItems value="#{profesorUI.consultar()}" var="prof"
+                                       itemLabel="#{prof.nombre} #{prof.apellidoPat} #{prof.apellidoMat}"
+                                       itemValue="#{prof.id}"/>
+                    </p:selectOneMenu>
+                </div>
+
+                <div class="form-field">
+                    <h:outputLabel for="ua" value="Unidad de aprendizaje asignada" />
+                    <p:selectOneMenu id="ua" value="#{asignacionUI.idUA}" filter="true" filterMatchMode="contains" filterPlaceholder="Buscar UA...">
+                        <f:selectItems value="#{uaUI.consultar()}" var="uaItem"
+                                       itemLabel="#{uaItem.nombre}"
+                                       itemValue="#{uaItem.id}"/>
+                    </p:selectOneMenu>
+                </div>
+
+                <div class="form-field">
+                    <h:outputLabel for="grupo" value="Grupo" />
+                    <p:inputText id="grupo"
+                                 styleClass="form-input-long"
+                                 placeholder="Grupo"
+                                 value="#{asignacionUI.asignacion.grupo}"
+                                 required="true" maxlength="3" minlength="3"
+                                 pattern="[0-9]"
+                                 requiredMessage="Ingresa el grupo."/>
+                </div>
+
+                <h4 class="detalle-subtitle">Agregar horarios</h4>
+                <div class="form-field">
+                    <p:outputPanel id="horariosPanel">
+                        <p:dataTable id="horariosTable" value="#{asignacionUI.horarios}" var="h" emptyMessage="Sin horarios agregados"
+                                     styleClass="query-table detalle-table horarios-table">
+                            <p:column headerText="Día">
+                                <p:selectOneMenu value="#{h.dia}">
+                                    <f:selectItem itemLabel="Lunes" itemValue="Lunes"/>
+                                    <f:selectItem itemLabel="Martes" itemValue="Martes"/>
+                                    <f:selectItem itemLabel="Miércoles" itemValue="Miércoles"/>
+                                    <f:selectItem itemLabel="Jueves" itemValue="Jueves"/>
+                                    <f:selectItem itemLabel="Viernes" itemValue="Viernes"/>
+                                    <f:selectItem itemLabel="Sábado" itemValue="Sábado"/>
+                                </p:selectOneMenu>
+                            </p:column>
+                            <p:column headerText="Hora inicio">
+                                <p:datePicker value="#{h.horaInicio}"
+                                              timeOnly="true"
+                                              pattern="HH:mm"/>
+                            </p:column>
+                            <p:column headerText="Hora final">
+                                <p:datePicker value="#{h.horaFinal}"
+                                              timeOnly="true"
+                                              pattern="HH:mm"/>
+                            </p:column>
+                            <p:column headerText="Tipo de Clase">
+                                <p:selectOneMenu value="#{h.tipoClase}">
+                                    <f:selectItem itemLabel="Clase" itemValue="Clase"/>
+                                    <f:selectItem itemLabel="Taller" itemValue="Taller"/>
+                                    <f:selectItem itemLabel="Laboratorio" itemValue="Laboratorio"/>
+                                </p:selectOneMenu>
+                            </p:column>
+                            <p:column headerText="">
+                                <p:commandButton icon="pi pi-trash" styleClass="btn-icon-danger"
+                                                 action="#{asignacionUI.eliminarHorario(h)}"
+                                                 process="@this horariosTable"
+                                                 update="horariosTable"
+                                                 ajax="true"/>
+                            </p:column>
+                        </p:dataTable>
+                        <p:commandButton icon="pi pi-calendar-plus" styleClass="btn-secondary"
+                                         action="#{asignacionUI.agregarHorario}"
+                                         process="@this horariosPanel"
+                                         update="horariosPanel"
+                                         ajax="true"/>
+                    </p:outputPanel>
+                </div>
+                <div class="form-actions">
+                    <p:commandButton value="Guardar asignación"
+                                     styleClass="btn-primary"
+                                     action="#{asignacionUI.asignar}"
+                                     process="@form"
+                                     update="messages @form"
+                                     ajax="true"/>
+                    <p:commandButton value="Limpiar campos"
+                                     type="reset"
+                                     styleClass="btn-primary"
+                                     ajax="false"
+                                     immediate="true"/>
+                </div>
+
+            </div>
+
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

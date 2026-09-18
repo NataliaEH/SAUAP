@@ -10,18 +10,22 @@ import java.util.List;
 
 public class DelegateAsignacion {
 
-    public boolean asignar(Profesor profesor, UnidadAprendizaje ua, List<Horario> horarios) {
-
-        if (profesor == null || ua == null) {
+    public boolean asignar(int idProfesor, int idUA, int grupo, List<Horario> horarios) {
+        if (idProfesor == 0 || idUA == 0) {
             return false;
         }
 
-        Asignacion asignacion = new Asignacion();
-        asignacion.setProfesor(profesor);
-        asignacion.setUnidadAprendizaje(ua);
-        asignacion.setHorarios(horarios);
-
         try {
+            Profesor p = ServiceLocator.getInstanceProfesorDAO().find(idProfesor).orElse(null);
+            UnidadAprendizaje ua = ServiceLocator.getInstanceUnidadAprendizajeDAO().find(idUA).orElse(null);
+            if(p==null || ua==null){
+                return false;
+            }
+            Asignacion asignacion = new Asignacion();
+            asignacion.setProfesor(p);
+            asignacion.setUnidadAprendizaje(ua);
+            asignacion.setGrupo(grupo);
+
             ServiceLocator.getInstanceAsignacionDAO().save(asignacion);
 
             if (horarios != null) {
@@ -33,6 +37,7 @@ public class DelegateAsignacion {
 
             return true;
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -70,7 +75,6 @@ public class DelegateAsignacion {
     }
 
     public boolean eliminar(int id) {
-
         Asignacion asignacion = buscar(id);
 
         if (asignacion == null) {
@@ -78,9 +82,14 @@ public class DelegateAsignacion {
         }
 
         try {
+            List<Horario> horarios = ServiceLocator.getInstanceHorarioDAO().findByOneParameter(id, "asignacion.id");
+            for(Horario h:horarios){
+                ServiceLocator.getInstanceHorarioDAO().delete(h);
+            }
             ServiceLocator.getInstanceAsignacionDAO().delete(asignacion);
             return true;
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -107,37 +116,15 @@ public class DelegateAsignacion {
         }
     }
 
-    public boolean validarTraslape() {
-        List<Horario> horarios = ServiceLocator.getInstanceHorarioDAO().findAll();
-
-        for (int i = 0; i < horarios.size(); i++) {
-
-            Horario horario1 = horarios.get(i);
-
-            for (int j = i + 1; j < horarios.size(); j++) {
-
-                Horario horario2 = horarios.get(j);
-
-                if (horario1.getDia().equalsIgnoreCase(horario2.getDia())
-                        && horario1.getHoraInicio() < horario2.getHoraFinal()
-                        && horario1.getHoraFinal() > horario2.getHoraInicio()) {
-
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
     public List<Horario> listarHorarios(int id) {
-
         Asignacion asignacion = buscar(id);
 
         if (asignacion == null) {
             return null;
         }
-
-        return asignacion.getHorarios();
+        return ServiceLocator.getInstanceHorarioDAO().findByOneParameter(id, "asignacion.id");
+    }
+    public List<Horario> listarHorarios(){
+        return ServiceLocator.getInstanceHorarioDAO().findAll();
     }
 }

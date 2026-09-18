@@ -10,6 +10,7 @@ import mx.desarrollo.helper.UAHelper;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 @Named("uaUI")
 @ViewScoped
@@ -27,10 +28,12 @@ public class UABean implements Serializable{
     }
 
     public void registrar(){
-        for(UnidadAprendizaje u:uas){
-            if(u.getNombre().equalsIgnoreCase(ua.getNombre())){
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de registro:", "UA ya existe en el catálogo."));
-                return;
+        if(uas!=null){
+            for(UnidadAprendizaje u:uas){
+                if(u.getNombre().equalsIgnoreCase(ua.getNombre())){
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de registro:", "UA ya existe en el catálogo."));
+                    return;
+                }
             }
         }
 
@@ -43,15 +46,19 @@ public class UABean implements Serializable{
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de registro:", "Hubo un error al hacer el registro en la BD."));
         }
     }
-    public void modificar(int id, String nombre, int horasClase, int horasTaller, int horasLab){
-        for(UnidadAprendizaje u:uas){
-            if(u.getNombre().equalsIgnoreCase(nombre)){
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de modificación:", "UA ya existe en el catálogo."));
-                return;
+    public void modificar(UnidadAprendizaje ua){
+        System.out.println("ENTRANDO BEAN");
+
+        if(getUas()!=null){
+            for(UnidadAprendizaje u:uas){
+                if(!Objects.equals(u.getId(), ua.getId()) && u.getNombre().equalsIgnoreCase(ua.getNombre())){
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de modificación:", "UA ya existe en el catálogo."));
+                    return;
+                }
             }
         }
 
-        boolean modificado = uaHelper.modificar(id, nombre, horasClase, horasTaller, horasLab);
+        boolean modificado = uaHelper.modificar(ua.getId(), ua.getNombre(), ua.getHorasClase(), ua.getHorasTaller(), ua.getHorasLaboratorio());
         if(modificado){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "UA modificada:", "La UA se modificó en el catálogo."));
             uas = null;

@@ -29,6 +29,7 @@ public class DelegateUA {
 
     public boolean modificar(int id, String nombre, int horasClase, int horasTaller, int horasLab) {
         if (nombre == null || nombre.trim().isEmpty() || nombre.length() > 50) {
+            System.out.println("FALSE IN DELEGATE");
             return false;
         }
 
@@ -43,6 +44,7 @@ public class DelegateUA {
             ServiceLocator.getInstanceUnidadAprendizajeDAO().update(ua);
             return true;
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }

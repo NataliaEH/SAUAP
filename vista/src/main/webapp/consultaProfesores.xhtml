@@ -52,8 +52,6 @@
 
                         <p:commandButton value="Ver" type="button" styleClass="btn-table"
                                          onclick="PF('detalleDialog#{p.id}').show();"/>
-                        <p:commandButton value="Asignar" type="button" styleClass="btn-table-wine"
-                                         onclick="PF('asignarDialog#{p.id}').show();"/>
 
                         <p:dialog widgetVar="detalleDialog#{p.id}" header="Detalle del profesor"
                                   modal="true" resizable="false" draggable="false" closable="true"
@@ -83,90 +81,31 @@
                                 </div>
 
                                 <h4 class="detalle-subtitle">Asignaciones realizadas</h4>
-
-                                <table class="query-table detalle-table">
-                                    <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nombre</th>
-                                        <th>Grupo</th>
-                                        <th>Clase</th>
-                                        <th>Taller</th>
-                                        <th>Lab</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td colspan="6" class="detalle-table-empty">Sin asignaciones registradas</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                <p:dataTable var="a" value="#{p.getAsignaciones()}" emptyMessage="Sin asignaciones registradas"
+                                styleClass="query-table detalle-table">
+                                    <p:column headerText="Unidad de Aprendizaje">
+                                        <h:outputText value="#{a.unidadAprendizaje.nombre}"/>
+                                    </p:column>
+                                    <p:column headerText="Grupo">
+                                        <h:outputText value="#{a.grupo}"/>
+                                    </p:column>
+                                    <p:column headerText="Horas Clase">
+                                        <h:outputText value="#{a.unidadAprendizaje.horasClase}"/>
+                                    </p:column>
+                                    <p:column headerText="Horas Taller">
+                                        <h:outputText value="#{a.unidadAprendizaje.horasTaller}"/>
+                                    </p:column>
+                                    <p:column headerText="Horas Laboratorio">
+                                        <h:outputText value="#{a.unidadAprendizaje.horasLaboratorio}"/>
+                                    </p:column>
+                                </p:dataTable>
 
                             </div>
 
                             <f:facet name="footer">
                                 <div class="detalle-footer">
-                                    <p:commandButton value="Asignar" type="button" styleClass="btn-table-wine"
-                                                     onclick="PF('detalleDialog#{p.id}').hide(); PF('asignarDialog#{p.id}').show();"/>
                                     <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
                                                      onclick="PF('detalleDialog#{p.id}').hide();"/>
-                                </div>
-                            </f:facet>
-
-                        </p:dialog>
-
-                        <p:dialog widgetVar="asignarDialog#{p.id}" header="Asignar UA"
-                                  modal="true" resizable="false" draggable="false" closable="true"
-                                  appendTo="@(body)" styleClass="app-dialog asignar-dialog" width="759">
-
-                            <div class="detalle-body">
-
-                                <span class="asignar-label">Profesor asignado</span>
-                                <div class="asignar-selector">
-                                    <span>#{p.nombre} #{p.apellidoPat} #{p.apellidoMat}</span>
-                                </div>
-
-                                <span class="asignar-label">Unidad de aprendizaje asignada</span>
-                                <p:selectOneMenu filter="true" filterMatchMode="contains" filterPlaceholder="Buscar UA...">
-                                    <f:selectItems value="#{uaUI.consultar()}" var="uaItem"
-                                                   itemLabel="#{uaItem.nombre}"
-                                                   itemValue="#{uaItem}"/>
-                                </p:selectOneMenu>
-
-                                <div class="asignar-grupo-row">
-                                    <h:outputLabel value="Grupo" styleClass="asignar-grupo-label"/>
-                                    <p:inputText styleClass="asignar-grupo-input" placeholder="..."/>
-                                </div>
-
-                                <h4 class="detalle-subtitle">Agregar horarios</h4>
-
-                                <table class="query-table detalle-table horarios-table">
-                                    <thead>
-                                    <tr>
-                                        <th>Día</th>
-                                        <th>Hora Inicio</th>
-                                        <th>Hora fin</th>
-                                        <th>Tipo de Clase</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td colspan="4" class="detalle-table-empty">Sin horarios agregados</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-
-                            </div>
-
-                            <f:facet name="footer">
-                                <div class="asignar-footer">
-                                    <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
-                                                     onclick="PF('asignarDialog#{p.id}').hide();"/>
-                                    <p:commandButton value="Guardar" styleClass="btn-table-wine"
-                                                     action="#{asignacionUI.asignar()}"
-                                                     process="@form"
-                                                     update="messages profesoresTable"
-                                                     ajax="true"/>
                                 </div>
                             </f:facet>
 

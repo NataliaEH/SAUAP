@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+import java.time.LocalTime;
+
 @Entity
 @Table(name = "horario")
 public class Horario {
@@ -23,11 +25,11 @@ public class Horario {
 
     @NotNull
     @Column(name = "hora_inicio", nullable = false)
-    private Integer horaInicio;
+    private LocalTime horaInicio;
 
     @NotNull
     @Column(name = "hora_fin", nullable = false)
-    private Integer horaFinal;
+    private LocalTime horaFinal;
 
     @NotNull
     @Column(name = "tipo_de_clase", nullable = false, length = 45)
@@ -42,11 +44,11 @@ public class Horario {
     public String getDia() {return dia;}
     public void setDia(String dia) {this.dia = dia;}
 
-    public Integer getHoraInicio() {return horaInicio;}
-    public void setHoraInicio(Integer horaInicio) {this.horaInicio = horaInicio;}
+    public LocalTime getHoraInicio() {return horaInicio;}
+    public void setHoraInicio(LocalTime horaInicio) {this.horaInicio = horaInicio;}
 
-    public Integer getHoraFinal() {return horaFinal;}
-    public void setHoraFinal(Integer horaFinal){this.horaFinal = horaFinal;}
+    public LocalTime getHoraFinal() {return horaFinal;}
+    public void setHoraFinal(LocalTime horaFinal){this.horaFinal = horaFinal;}
 
     public String getTipoClase() {return tipoClase;}
     public void setTipoClase(String tipoClase) {this.tipoClase = tipoClase;}

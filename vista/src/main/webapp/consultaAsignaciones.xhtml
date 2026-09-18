@@ -22,7 +22,7 @@
             <div class="query-card">
 
                 <p:dataTable id="asignacionesTable" widgetVar="asignacionesTableWidget"
-                             var="a" value="#{asignacionUI.consultar()}"
+                             var="a" value="#{asignacionUI.asignaciones}"
                              styleClass="query-table">
 
                     <f:facet name="header">
@@ -49,7 +49,7 @@
                     </p:column>
 
                     <p:column headerText="Grupo">
-                        <h:outputText value="—"/>
+                        <h:outputText value="#{a.grupo}"/>
                     </p:column>
 
                     <p:column headerText="Acciones">
@@ -61,18 +61,18 @@
 
                         <p:dialog widgetVar="modificarDialog#{a.id}" header="Modificar asignación"
                                   modal="true" resizable="false" draggable="false" closable="true"
-                                  appendTo="@(body)" styleClass="app-dialog asignar-dialog" width="759">
-
+                                  styleClass="app-dialog asignar-dialog" width="759">
+                            <p:outputPanel id="modificarAsigPanel#{a.id}">
                             <div class="detalle-body">
 
-                                <span class="asignar-label">Profesor asignado</span>
+                                <h:outputLabel value="Profesor asignada" styleClass="asignar-label"/>
                                 <p:selectOneMenu value="#{a.profesor}" filter="true" filterMatchMode="contains" filterPlaceholder="Buscar profesor...">
                                     <f:selectItems value="#{profesorUI.consultar()}" var="prof"
                                                    itemLabel="#{prof.nombre} #{prof.apellidoPat} #{prof.apellidoMat}"
                                                    itemValue="#{prof}"/>
                                 </p:selectOneMenu>
 
-                                <span class="asignar-label">Unidad de aprendizaje asignada</span>
+                                <h:outputLabel value="Unidad de aprendizaje asignada" styleClass="asignar-label"/>
                                 <p:selectOneMenu value="#{a.unidadAprendizaje}" filter="true" filterMatchMode="contains" filterPlaceholder="Buscar UA...">
                                     <f:selectItems value="#{uaUI.consultar()}" var="uaItem"
                                                    itemLabel="#{uaItem.nombre}"
@@ -81,7 +81,7 @@
 
                                 <div class="asignar-grupo-row">
                                     <h:outputLabel value="Grupo" styleClass="asignar-grupo-label"/>
-                                    <p:inputText styleClass="asignar-grupo-input" placeholder="..." disabled="true"/>
+                                    <p:inputText value="#{a.grupo}" styleClass="asignar-grupo-input" placeholder="..."/>
                                 </div>
 
                                 <h4 class="detalle-subtitle">Horarios</h4>
@@ -106,14 +106,17 @@
                                     </ui:repeat>
                                     </tbody>
                                 </table>
-
                             </div>
-
+                            </p:outputPanel>
                             <f:facet name="footer">
                                 <div class="asignar-footer">
                                     <p:commandButton value="Cerrar" type="button" styleClass="btn-cerrar"
                                                      onclick="PF('modificarDialog#{a.id}').hide();"/>
-                                    <p:commandButton value="Guardar" type="button" styleClass="btn-table-wine" disabled="true"/>
+                                    <p:commandButton value="Guardar cambios" styleClass="btn-table-wine"
+                                                     action="#{asignacionUI.modificar(a)}"
+                                                     process="@this @parent"
+                                                     update="messages asignacionesTable"
+                                                     ajax="true"/>
                                 </div>
                             </f:facet>
 

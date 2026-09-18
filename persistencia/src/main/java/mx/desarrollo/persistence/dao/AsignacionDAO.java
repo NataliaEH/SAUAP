@@ -2,6 +2,9 @@ package mx.desarrollo.persistence.dao;
 
 import jakarta.persistence.EntityManager;
 import mx.desarrollo.entity.Asignacion;
+import mx.desarrollo.entity.Horario;
+import mx.desarrollo.entity.Profesor;
+import mx.desarrollo.entity.UnidadAprendizaje;
 import mx.desarrollo.persistence.persistence.AbstractDAO;
 
 import java.util.List;

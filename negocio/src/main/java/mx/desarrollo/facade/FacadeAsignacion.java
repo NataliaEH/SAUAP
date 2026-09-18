@@ -16,8 +16,8 @@ public class FacadeAsignacion {
         this.delegateAsignacion = new DelegateAsignacion();
     }
 
-    public boolean asignar(UnidadAprendizaje ua, Profesor profesor, List<Horario> horarios) {
-        return delegateAsignacion.asignar(profesor, ua, horarios);
+    public boolean asignar(int idUA, int idProfesor, int grupo, List<Horario> horarios) {
+        return delegateAsignacion.asignar(idProfesor, idUA, grupo, horarios);
     }
 
     public boolean modificar(int id, UnidadAprendizaje ua, Profesor profesor, List<Horario> horarios) {
@@ -43,4 +43,5 @@ public class FacadeAsignacion {
     public List<Horario> listarHorarios(int id) {
         return delegateAsignacion.listarHorarios(id);
     }
+    public List<Horario> listarHorarios(){return delegateAsignacion.listarHorarios();}
 }

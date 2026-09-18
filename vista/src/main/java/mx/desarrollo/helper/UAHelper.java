@@ -1,5 +1,6 @@
 package mx.desarrollo.helper;
 
+import mx.desarrollo.entity.Asignacion;
 import mx.desarrollo.entity.UnidadAprendizaje;
 import mx.desarrollo.integration.ServiceFacadeLocator;
 import java.io.Serializable;
@@ -15,6 +16,9 @@ public class UAHelper implements Serializable {
     }
 
     public boolean eliminar(int id) {
+        for(Asignacion a:ServiceFacadeLocator.getInstanceFacadeAsignacion().listar()){
+            ServiceFacadeLocator.getInstanceFacadeAsignacion().eliminar(a.getId());
+        }
         return ServiceFacadeLocator.getInstanceFacadeUA().eliminar(id);
     }
 
