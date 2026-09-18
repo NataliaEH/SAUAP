@@ -5,9 +5,13 @@ html, body {
     height: 100%;
 }
 
+html {
+    zoom: 0.75;
+}
+
 .login-bg {
     width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -51,6 +55,8 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 30px;
+    box-shadow: 0 0 20px 5px rgba(64, 201, 162, 0.2);
 }
 
 .login-logo {
@@ -109,7 +115,7 @@ html, body {
 .app-shell {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100%;
 }
 
 .app-topbar {
@@ -120,8 +126,10 @@ html, body {
     align-items: center;
     padding: 0 24px;
     box-sizing: border-box;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(64, 201, 162, 0.25);
     flex-shrink: 0;
+    position: relative;
+    z-index: 2;
 }
 
 .app-logo-long {
@@ -142,21 +150,26 @@ html, body {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
+    box-shadow: 2px 0 12px rgba(64, 201, 162, 0.25);
+    position: relative;
+    z-index: 1;
 }
 
 .nav-section-label {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 12px;
-    color: #8A8A8A;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(30, 30, 30, 0.7);
     margin: 16px 8px 8px;
 }
 
 .nav-item {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1E1E1E;
     padding: 10px 12px;
     border-radius: 6px;
-    color: #40C9A2;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -181,12 +194,13 @@ html, body {
     margin-top: auto;
     font-family: 'Martel Sans', sans-serif;
     font-size: 14px;
-    padding: 10px 12px;
+    padding: 20px 12px 10px;
     color: #1E1E1E;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 10px;
+    border-top: 1px solid rgba(30, 30, 30, 0.2);
 }
 
 .nav-footer i {
@@ -211,11 +225,15 @@ html, body {
     height: 110px;
     box-sizing: border-box;
     background-color: #40C9A2;
+    background-image: url('/vista/resources/textura.png');
+    background-repeat: repeat;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 28px;
     margin-top: 55px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px 5px rgba(64, 201, 162, 0.2);
 }
 
 .welcome-date {
@@ -227,7 +245,7 @@ html, body {
 
 .welcome-title {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 20px;
+    font-size: 24px;
     color: #FFFFFF;
     margin: 0;
 }
@@ -260,6 +278,8 @@ html, body {
     display: flex;
     flex-direction: column;
     font-size: 16px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px 5px rgba(64, 201, 162, 0.2);
 }
 
 .card-title {
@@ -314,6 +334,10 @@ html, body {
 
 .form-select-short.ui-selectonemenu {
     width: 120px !important;
+    height: 48px !important;
+    box-sizing: border-box;
+    border: 3px solid #A3F7B5 !important;
+    background-color: #FFFFFF !important;
 }
 
 .form-actions {
@@ -335,8 +359,6 @@ html, body {
 
 .query-card {
     width: 1104px;
-    background-color: #FFFFFF;
-    padding: 24px 32px;
     box-sizing: border-box;
 }
 
@@ -357,16 +379,20 @@ html, body {
     width: 100%;
     border-collapse: collapse;
     font-family: 'Martel Sans', sans-serif;
-}
-
-.query-table thead tr {
-    background-color: #40C9A2;
+    border-radius: 16px;
+    background: transparent !important;
+    border: none !important;
+    overflow: hidden;
+    box-shadow: 0 0 20px 5px rgba(64, 201, 162, 0.2);
 }
 
 .query-table thead th {
-    color: #FFFFFF;
-    text-align: left;
-    padding: 12px 16px;
+    height: 50px !important;
+    padding: 0 16px !important;
+    vertical-align: middle;
+    box-sizing: border-box;
+    background-color: #40C9A2 !important;
+    color: #FFFFFF !important;
     font-weight: 600;
 }
 
@@ -375,7 +401,10 @@ html, body {
 }
 
 .query-table tbody td {
-    padding: 12px 16px;
+    height: 50px !important;
+    padding: 0 16px !important;
+    vertical-align: middle;
+    box-sizing: border-box;
     color: #1E1E1E;
 }
 
@@ -384,8 +413,10 @@ html, body {
     font-weight: 600;
     color: #FFFFFF !important;
     border: none !important;
-    padding: 6px 14px !important;
-    height: auto !important;
+    height: 40px !important;
+    padding: 0 14px !important;
+    display: inline-flex;
+    align-items: center;
     margin-right: 8px;
 }
 
@@ -399,14 +430,14 @@ html, body {
 
 .app-dialog.ui-dialog {
     border: none !important;
-    border-radius: 8px !important;
+    border-radius: 16px !important;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
     height: var(--dlg-h) !important;
     max-height: var(--dlg-h) !important;
 }
 
-/* Tamaño especifico de cada dialogo */
+
 .detalle-dialog.ui-dialog {
     width: 758px !important;
     --dlg-h: min(886px, 90vh);
@@ -475,6 +506,10 @@ html, body {
     margin-bottom: 14px;
 }
 
+.detalle-field + .detalle-subtitle {
+    margin-top: 50px;
+}
+
 .detalle-body .detalle-label {
     width: 180px;
     flex-shrink: 0;
@@ -504,11 +539,18 @@ html, body {
 }
 
 .detalle-table thead th {
-    padding: 8px 16px !important;
+    height: 50px !important;
+    padding: 0 16px !important;
+    vertical-align: middle;
+    background-color: #40C9A2 !important;
+    color: #FFFFFF !important;
+    font-weight: 600;
 }
 
 .detalle-table tbody td {
-    padding: 6px 16px !important;
+    height: 50px !important;
+    padding: 0 16px !important;
+    vertical-align: middle;
 }
 
 .detalle-table-empty {
@@ -519,7 +561,8 @@ html, body {
 
 .detalle-footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 12px;
     width: 100%;
 }
 
@@ -529,16 +572,17 @@ html, body {
     background-color: #664147 !important;
     border-color: #664147 !important;
     color: #FFFFFF !important;
-    padding: 6px 20px !important;
-    height: auto !important;
+    padding: 0 20px !important;
+    height: 40px !important;
 }
 
 .asignar-label {
+    display: block;
     font-family: 'Martel Sans', sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #1E1E1E;
-    margin: 0 0 8px;
+    margin: 0 0 12px;
 }
 
 .asignar-search-row {
@@ -586,7 +630,7 @@ html, body {
 }
 
 .asignar-selector {
-    width: 639px;
+    width: 100%;
     height: 48px;
     box-sizing: border-box;
     background-color: #1E1E1E;
@@ -649,7 +693,7 @@ html, body {
 .eliminar-dialog.ui-dialog {
     width: 631px !important;
     border: none !important;
-    border-radius: 8px !important;
+    border-radius: 16px !important;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
 }
@@ -672,7 +716,7 @@ html, body {
 }
 
 .eliminar-icon {
-    font-size: 40px;
+    font-size: 36px;
     color: #B2454F;
     margin-bottom: 16px;
 }
@@ -695,10 +739,10 @@ html, body {
 
 .eliminar-note {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 13px;
-    color: #8A8A8A;
+    font-size: 16px;
+    color: rgba(30, 30, 30, 0.7);
     line-height: 1.5;
-    margin: 0 0 28px;
+    margin: 0 0 50px;
 }
 
 .eliminar-footer {
@@ -708,7 +752,7 @@ html, body {
 
 .eliminar-footer .ui-button {
     width: 140px !important;
-    height: 44px !important;
+    height: 40px !important;
 }
 
 .detalle-ua-dialog.ui-dialog {
@@ -745,7 +789,7 @@ html, body {
 .modificar-ua-dialog.ui-dialog {
     width: 999px !important;
     border: none !important;
-    border-radius: 8px !important;
+    border-radius: 16px !important;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
 }
@@ -756,8 +800,44 @@ html, body {
     padding: 32px !important;
 }
 
+.modificar-ua-dialog .form-actions {
+    justify-content: flex-end;
+}
+
+.modificar-ua-dialog .btn-primary.ui-button {
+    height: 40px !important;
+}
+
 .modificar-ua-body {
     display: flex;
     flex-direction: column;
     height: 100%;
+}
+
+.ui-inputfield {
+    border-radius: 10px !important;
+}
+
+.ui-selectonemenu {
+    border-radius: 10px !important;
+}
+
+.ui-button {
+    border-radius: 10px !important;
+}
+
+.ui-button {
+    background-color: #664147 !important;
+    border-color: #664147 !important;
+    color: #FFFFFF !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: normal !important;
+}
+
+.ui-button .ui-button-text {
+    padding: 0 !important;
+    display: inline-block !important;
+    line-height: normal !important;
 }

@@ -20,7 +20,7 @@ public class HorarioDAO extends AbstractDAO<Horario> {
                 .getResultList();
     }
 
-    //pUBLIC INT BUSCAR POR ID
+    //PUBLIC INT BUSCAR POR ID
 
     @Override
     public EntityManager getEntityManager() {
