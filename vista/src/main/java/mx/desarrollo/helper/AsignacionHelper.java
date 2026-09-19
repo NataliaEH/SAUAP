@@ -17,8 +17,8 @@ public class AsignacionHelper implements Serializable {
     public boolean asignar(int idUA, int idProfesor, int grupo, List<Horario> horarios){
         return ServiceFacadeLocator.getInstanceFacadeAsignacion().asignar(idUA, idProfesor, grupo, horarios);
     }
-    public boolean modificar(int id, UnidadAprendizaje ua, Profesor profesor, List<Horario> horarios){
-        return ServiceFacadeLocator.getInstanceFacadeAsignacion().modificar(id, ua, profesor, horarios);
+    public boolean modificar(int id, UnidadAprendizaje ua, Profesor profesor, int grupo, List<Horario> horarios){
+        return ServiceFacadeLocator.getInstanceFacadeAsignacion().modificar(id, ua, profesor, grupo, horarios);
     }
     public boolean eliminar(int id){
         return ServiceFacadeLocator.getInstanceFacadeAsignacion().eliminar(id);
@@ -33,4 +33,7 @@ public class AsignacionHelper implements Serializable {
         return ServiceFacadeLocator.getInstanceFacadeAsignacion().listarHorarios(id);
     }
     public List<Horario> consultarHorarios(){return ServiceFacadeLocator.getInstanceFacadeAsignacion().listarHorarios();}
+    public UnidadAprendizaje getUA(int id){return ServiceFacadeLocator.getInstanceFacadeUA().buscar(id);}
+
+    public Profesor getProfesor(int id) {return ServiceFacadeLocator.getInstanceFacadeProfesor().buscar(id);    }
 }

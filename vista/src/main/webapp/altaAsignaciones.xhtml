@@ -73,12 +73,12 @@
                             <p:column headerText="Hora inicio">
                                 <p:datePicker value="#{h.horaInicio}"
                                               timeOnly="true"
-                                              pattern="HH:mm"/>
+                                              pattern="HH:mm" stepMinute="60"/>
                             </p:column>
                             <p:column headerText="Hora final">
                                 <p:datePicker value="#{h.horaFinal}"
                                               timeOnly="true"
-                                              pattern="HH:mm"/>
+                                              pattern="HH:mm" stepMinute="60"/>
                             </p:column>
                             <p:column headerText="Tipo de Clase">
                                 <p:selectOneMenu value="#{h.tipoClase}">

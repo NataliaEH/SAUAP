@@ -20,8 +20,8 @@ public class FacadeAsignacion {
         return delegateAsignacion.asignar(idProfesor, idUA, grupo, horarios);
     }
 
-    public boolean modificar(int id, UnidadAprendizaje ua, Profesor profesor, List<Horario> horarios) {
-        return delegateAsignacion.modificar(id, profesor, ua, horarios);
+    public boolean modificar(int id, UnidadAprendizaje ua, Profesor profesor, int grupo, List<Horario> horarios) {
+        return delegateAsignacion.modificar(id, profesor, ua, grupo, horarios);
     }
 
     public boolean eliminar(int id) {

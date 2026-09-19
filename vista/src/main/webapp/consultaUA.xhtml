@@ -132,7 +132,7 @@
                                     <p:commandButton value="Aceptar"
                                                      action="#{uaUI.eliminar(u.id)}"
                                                      process="@this"
-                                                     update="messages uaTable"
+                                                     update="messages @form"
                                                      oncomplete="PF('eliminarUADialog#{u.id}').hide();"/>
                                 </div>
                             </div>
@@ -195,7 +195,7 @@
                                         <p:commandButton value="Guardar cambios" styleClass="btn-primary"
                                                          action="#{uaUI.modificar(u)}"
                                                          process="@this @parent"
-                                                         update="messages uaTable"
+                                                         update="messages @form"
                                                          ajax="true"/>
                                         <p:commandButton value="Cerrar" type="button" styleClass="btn-primary"
                                                          onclick="PF('modificarUADialog#{u.id}').hide();"/>

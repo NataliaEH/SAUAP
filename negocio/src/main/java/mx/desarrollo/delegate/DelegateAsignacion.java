@@ -42,8 +42,7 @@ public class DelegateAsignacion {
         }
     }
 
-    public boolean modificar(int id, Profesor profesor, UnidadAprendizaje ua, List<Horario> horarios) {
-
+    public boolean modificar(int id, Profesor profesor, UnidadAprendizaje ua, int grupo, List<Horario> horarios) {
         if (profesor == null || ua == null) {
             return false;
         }
@@ -56,20 +55,23 @@ public class DelegateAsignacion {
 
         asignacion.setProfesor(profesor);
         asignacion.setUnidadAprendizaje(ua);
+        asignacion.setGrupo(grupo);
         asignacion.setHorarios(horarios);
 
         try {
+            System.out.println("PASARA POR DAO");
             ServiceLocator.getInstanceAsignacionDAO().update(asignacion);
 
             if (horarios != null) {
                 for (Horario horario : horarios) {
                     horario.setAsignacion(asignacion);
-                    ServiceLocator.getInstanceHorarioDAO().save(horario);
+                    ServiceLocator.getInstanceHorarioDAO().update(horario);
                 }
             }
-
+            System.out.println("YA PASO POR DAO");
             return true;
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }

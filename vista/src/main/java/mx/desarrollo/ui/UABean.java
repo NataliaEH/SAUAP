@@ -29,7 +29,7 @@ public class UABean implements Serializable{
     }
 
     public void registrar(){
-        if (!Pattern.matches("(?=.*[A-Za-z])[A-Za-záéíóúÁÉÍÓÚñÑ\\s-0-9]",ua.getNombre())) {
+        if (!Pattern.matches("[A-Za-záéíóúÁÉÍÓÚñÑ\\s0-9]+",ua.getNombre())) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de formato:", "No se permiten carácteres especiales."));
             return;
         }
@@ -53,8 +53,9 @@ public class UABean implements Serializable{
         }
     }
     public void modificar(UnidadAprendizaje ua){
-        if (!Pattern.matches("(?=.*[A-Za-z])[A-Za-záéíóúÁÉÍÓÚñÑ\\s-0-9]",ua.getNombre())) {
+        if (!Pattern.matches("[A-Za-záéíóúÁÉÍÓÚñÑ\\s0-9]+",ua.getNombre())) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de formato:", "No se permiten carácteres especiales."));
+            uas = null;
             return;
         }
 
@@ -62,6 +63,7 @@ public class UABean implements Serializable{
             for(UnidadAprendizaje u:uas){
                 if(!Objects.equals(u.getId(), ua.getId()) && u.getNombre().equalsIgnoreCase(ua.getNombre())){
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de modificación:", "UA ya existe en el catálogo."));
+                    uas = null;
                     return;
                 }
             }
