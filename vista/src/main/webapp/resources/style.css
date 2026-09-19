@@ -5,10 +5,6 @@ html, body {
     height: 100%;
 }
 
-html {
-    zoom: 0.75;
-}
-
 .login-bg {
     width: 100%;
     min-height: 100%;
@@ -27,7 +23,7 @@ html {
 
 .ui-messages {
     position: fixed !important;
-    bottom: 24px !important;
+    bottom: 18px !important;
     top: auto !important;
     left: 50% !important;
     right: auto !important;
@@ -46,63 +42,71 @@ html {
 }
 
 .login-card {
-    width: 476px;
-    height: 734px;
+    width: 400px;
+    height: 551px;
     flex-shrink: 0;
     background-color: #FFFFFF;
     box-sizing: border-box;
-    padding-bottom: 48px;
+    padding-bottom: 65px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 30px;
-    box-shadow: 0 0 20px 5px rgba(64, 201, 162, 0.2);
+    border-radius: 23px;
+    box-shadow: 0 0 15px 4px rgba(64, 201, 162, 0.2);
 }
 
 .login-logo {
-    width: 123px;
-    height: 170px;
-    margin-top: 69px;
+    width: 92px;
+    height: 128px;
+    margin-top: 52px;
 }
 
 .login-subtitle {
-    margin: 19px 0 0;
-    width: 335px;
+    margin: 14px 0 0;
+    width: 300px;
     text-align: center;
     font-family: 'Martel Sans', sans-serif;
     font-weight: 600;
+    font-size: 15px;
 }
 
 .login-field-usuario {
-    width: 335px;
-    margin-top: 37px;
+    width: 281px;
+    margin-top: 28px;
 }
 
 .login-field-contrasena {
-    width: 335px;
-    margin-top: 17px;
+    width: 281px;
+    margin-top: 13px;
 }
 
 .login-field-usuario label,
 .login-field-contrasena label {
     font-family: 'Martel Sans', sans-serif;
     font-weight: 600;
+    font-size: 12px;
+    color: #B7B7B7;
     display: block;
-    margin-bottom: 7px;
+    margin-bottom: 5px;
 }
 
 .login-input.ui-inputfield {
-    width: 335px !important;
-    height: 48px !important;
+    width: 281px !important;
+    height: 36px !important;
     box-sizing: border-box;
-    border: 3px solid #A3F7B5 !important;
+    border: 2px solid #A3F7B5 !important;
     background-color: #FFFFFF !important;
 }
 
+.login-input.ui-inputfield::placeholder {
+    color: #B7B7B7;
+}
+
 .login-button.ui-button {
-    width: 335px !important;
-    height: 48px !important;
-    margin-top: 68px;
+    width: 281px !important;
+    height: 50px !important;
+    box-sizing: border-box;
+    margin-top: 51px;
     font-family: 'Martel Sans', sans-serif;
     font-weight: 600;
     background-color: #664147 !important;
@@ -115,65 +119,67 @@ html {
 .app-shell {
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .app-topbar {
-    height: 85px;
+    height: 64px;
     width: 100%;
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
-    padding: 0 24px;
+    padding: 0 18px;
     box-sizing: border-box;
-    box-shadow: 0 4px 12px rgba(64, 201, 162, 0.25);
+    box-shadow: 0 3px 9px rgba(64, 201, 162, 0.25);
     flex-shrink: 0;
     position: relative;
     z-index: 2;
 }
 
 .app-logo-long {
-    width: 173px;
-    height: 60px;
+    width: 130px;
+    height: 45px;
 }
 
 .app-body {
     display: flex;
     flex: 1;
+    overflow: hidden;
 }
 
 .app-sidebar {
-    width: 310px;
+    width: 233px;
     background-color: #FFFFFF;
-    padding: 24px 12px;
+    padding: 18px 9px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    box-shadow: 2px 0 12px rgba(64, 201, 162, 0.25);
+    box-shadow: 2px 0 9px rgba(64, 201, 162, 0.25);
     position: relative;
     z-index: 1;
 }
 
 .nav-section-label {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 400;
     color: rgba(30, 30, 30, 0.7);
-    margin: 16px 8px 8px;
+    margin: 12px 6px 6px;
 }
 
 .nav-item {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
     color: #1E1E1E;
-    padding: 10px 12px;
-    border-radius: 6px;
+    padding: 8px 9px;
+    border-radius: 5px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .nav-item i {
@@ -193,13 +199,13 @@ html {
 .nav-footer {
     margin-top: auto;
     font-family: 'Martel Sans', sans-serif;
-    font-size: 14px;
-    padding: 20px 12px 10px;
+    font-size: 11px;
+    padding: 15px 9px 8px;
     color: #1E1E1E;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     border-top: 1px solid rgba(30, 30, 30, 0.2);
 }
 
@@ -213,16 +219,17 @@ html {
 
 .app-main {
     flex: 1;
-    padding: 0 32px;
+    padding: 0 24px;
     box-sizing: border-box;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow-y: auto;
 }
 
 .welcome-banner {
-    width: 1104px;
-    height: 110px;
+    width: 828px;
+    height: 83px;
     box-sizing: border-box;
     background-color: #40C9A2;
     background-image: url('#{resource['textura.png']}');
@@ -230,125 +237,125 @@ html {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 28px;
-    margin-top: 55px;
-    border-radius: 16px;
-    box-shadow: 0 0 20px 5px rgba(64, 201, 162, 0.2);
+    padding: 0 21px;
+    margin-top: 41px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px 4px rgba(64, 201, 162, 0.2);
 }
 
 .welcome-date {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     color: #FFFFFF;
-    margin: 0 0 4px;
+    margin: 0 0 3px;
 }
 
 .welcome-title {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 24px;
+    font-size: 18px;
     color: #FFFFFF;
     margin: 0;
 }
 
 .welcome-icon {
-    width: 59px;
-    height: 59px;
+    width: 44px;
+    height: 44px;
 }
 
 .section-title {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 20px;
-    margin: 29px 0 4px;
+    font-size: 15px;
+    margin: 22px 0 3px;
     color: #1E1E1E;
 }
 
 .section-subtitle {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     color: #8A8A8A;
-    margin: 0 0 22px;
+    margin: 0 0 17px;
 }
 
 .content-card {
-    width: 1104px;
-    height: 533px;
+    width: 828px;
+    height: 400px;
     background-color: #FFFFFF;
-    padding: 32px 32px 42px;
+    padding: 24px 24px 32px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    font-size: 16px;
-    border-radius: 16px;
-    box-shadow: 0 0 20px 5px rgba(64, 201, 162, 0.2);
+    font-size: 12px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px 4px rgba(64, 201, 162, 0.2);
 }
 
 .card-title {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 20px;
-    margin: 0 0 4px;
+    font-size: 15px;
+    margin: 0 0 3px;
 }
 
 .card-subtitle {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     color: #8A8A8A;
-    margin: 0 0 16px;
+    margin: 0 0 12px;
 }
 
 .card-divider {
     border: none;
     border-top: 1px solid #E5F9E0;
-    margin: 0 0 24px;
+    margin: 0 0 18px;
 }
 
 .form-field {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .form-field label {
-    width: 180px;
+    width: 135px;
     flex-shrink: 0;
     font-family: 'Martel Sans', sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
     margin-bottom: 0;
 }
 
 .form-input-long.ui-inputfield {
-    width: 494px !important;
-    height: 48px !important;
+    width: 371px !important;
+    height: 36px !important;
     box-sizing: border-box;
-    border: 3px solid #A3F7B5 !important;
+    border: 2px solid #A3F7B5 !important;
     background-color: #FFFFFF !important;
 }
 
 .form-input-short.ui-inputfield {
-    width: 355px !important;
-    height: 48px !important;
+    width: 266px !important;
+    height: 36px !important;
     box-sizing: border-box;
-    border: 3px solid #A3F7B5 !important;
+    border: 2px solid #A3F7B5 !important;
     background-color: #FFFFFF !important;
 }
 
 .form-select-short.ui-selectonemenu {
-    width: 120px !important;
-    height: 48px !important;
+    width: 90px !important;
+    height: 36px !important;
     box-sizing: border-box;
-    border: 3px solid #A3F7B5 !important;
+    border: 2px solid #A3F7B5 !important;
     background-color: #FFFFFF !important;
 }
 
 .form-actions {
     display: flex;
-    gap: 12px;
+    gap: 9px;
     margin-top: auto;
 }
 
 .btn-primary.ui-button {
-    width: 256px !important;
-    height: 48px !important;
+    width: 192px !important;
+    height: 36px !important;
     font-family: 'Martel Sans', sans-serif;
     font-weight: 600;
     background-color: #664147 !important;
@@ -358,20 +365,20 @@ html {
 }
 
 .query-card {
-    width: 1104px;
+    width: 828px;
     box-sizing: border-box;
 }
 
 .query-toolbar {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .query-search.ui-inputfield {
-    width: 335px !important;
-    height: 44px !important;
+    width: 251px !important;
+    height: 33px !important;
     box-sizing: border-box;
-    border: 3px solid #A3F7B5 !important;
+    border: 2px solid #A3F7B5 !important;
     background-color: #FFFFFF !important;
 }
 
@@ -379,16 +386,17 @@ html {
     width: 100%;
     border-collapse: collapse;
     font-family: 'Martel Sans', sans-serif;
-    border-radius: 16px;
+    font-size: 11px;
+    border-radius: 12px;
     background: transparent !important;
     border: none !important;
     overflow: hidden;
-    box-shadow: 0 0 20px 5px rgba(64, 201, 162, 0.2);
+    box-shadow: 0 0 15px 4px rgba(64, 201, 162, 0.2);
 }
 
 .query-table thead th {
-    height: 50px !important;
-    padding: 0 16px !important;
+    height: 38px !important;
+    padding: 0 12px !important;
     vertical-align: middle;
     box-sizing: border-box;
     background-color: #40C9A2 !important;
@@ -401,8 +409,8 @@ html {
 }
 
 .query-table tbody td {
-    height: 50px !important;
-    padding: 0 16px !important;
+    height: 38px !important;
+    padding: 0 12px !important;
     vertical-align: middle;
     box-sizing: border-box;
     color: #1E1E1E;
@@ -411,13 +419,14 @@ html {
 .btn-table.ui-button, .btn-table-wine.ui-button {
     font-family: 'Martel Sans', sans-serif;
     font-weight: 600;
+    font-size: 12px;
     color: #FFFFFF !important;
     border: none !important;
-    height: 40px !important;
-    padding: 0 14px !important;
+    height: 30px !important;
+    padding: 0 11px !important;
     display: inline-flex;
     align-items: center;
-    margin-right: 8px;
+    margin-right: 6px;
 }
 
 .btn-table.ui-button {
@@ -430,22 +439,22 @@ html {
 
 .app-dialog.ui-dialog {
     border: none !important;
-    border-radius: 16px !important;
+    border-radius: 12px !important;
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18) !important;
     height: var(--dlg-h) !important;
     max-height: var(--dlg-h) !important;
 }
 
 
 .detalle-dialog.ui-dialog {
-    width: 758px !important;
-    --dlg-h: min(886px, 90vh);
+    width: 569px !important;
+    --dlg-h: min(665px, 90vh);
 }
 
 .asignar-dialog.ui-dialog {
-    width: 759px !important;
-    --dlg-h: min(992px, 90vh);
+    width: 569px !important;
+    --dlg-h: min(744px, 90vh);
 }
 
 .app-dialog .ui-dialog-titlebar {
@@ -453,16 +462,16 @@ html {
     border: none !important;
     border-radius: 0 !important;
     box-sizing: border-box;
-    height: 85px !important;
+    height: 64px !important;
     display: flex;
     align-items: center;
-    padding: 0 24px !important;
+    padding: 0 18px !important;
 }
 
 .app-dialog .ui-dialog-title {
     font-family: 'Martel Sans', sans-serif;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 15px;
     color: #FFFFFF !important;
 }
 
@@ -482,56 +491,56 @@ html {
 }
 
 .app-dialog .ui-dialog-content {
-    padding: 24px !important;
+    padding: 18px !important;
     background-color: #FFFFFF;
     box-sizing: border-box;
-    height: calc(var(--dlg-h) - 85px - 90px) !important;
+    height: calc(var(--dlg-h) - 64px - 68px) !important;
     overflow-y: auto;
 }
 
 .app-dialog .ui-dialog-footer {
-    height: 90px !important;
+    height: 68px !important;
     box-sizing: border-box;
     border: none !important;
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
-    padding: 0 24px !important;
+    padding: 0 18px !important;
 }
 
 
 .detalle-body .detalle-field {
     display: flex;
     align-items: center;
-    margin-bottom: 14px;
+    margin-bottom: 11px;
 }
 
 .detalle-field + .detalle-subtitle {
-    margin-top: 50px;
+    margin-top: 38px;
 }
 
 .detalle-body .detalle-label {
-    width: 180px;
+    width: 135px;
     flex-shrink: 0;
     font-family: 'Martel Sans', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 12px;
     color: #8A8A8A;
 }
 
 .detalle-body .detalle-value {
     font-family: 'Martel Sans', sans-serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 12px;
     color: #1E1E1E;
 }
 
 .detalle-subtitle {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 800;
     color: #1E1E1E;
-    margin: 20px 0 12px;
+    margin: 15px 0 9px;
 }
 
 .detalle-table {
@@ -539,8 +548,8 @@ html {
 }
 
 .detalle-table thead th {
-    height: 50px !important;
-    padding: 0 16px !important;
+    height: 38px !important;
+    padding: 0 12px !important;
     vertical-align: middle;
     background-color: #40C9A2 !important;
     color: #FFFFFF !important;
@@ -548,8 +557,8 @@ html {
 }
 
 .detalle-table tbody td {
-    height: 50px !important;
-    padding: 0 16px !important;
+    height: 38px !important;
+    padding: 0 12px !important;
     vertical-align: middle;
 }
 
@@ -562,35 +571,36 @@ html {
 .detalle-footer {
     display: flex;
     justify-content: flex-end;
-    gap: 12px;
+    gap: 9px;
     width: 100%;
 }
 
 .btn-cerrar.ui-button {
     font-family: 'Martel Sans', sans-serif;
     font-weight: 600;
+    font-size: 16px;
     background-color: #664147 !important;
     border-color: #664147 !important;
     color: #FFFFFF !important;
-    padding: 0 20px !important;
-    height: 40px !important;
+    padding: 0 15px !important;
+    height: 30px !important;
 }
 
 .asignar-label {
     display: block;
     font-family: 'Martel Sans', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 12px;
     color: #1E1E1E;
-    margin: 0 0 12px;
+    margin: 0 0 14px;
 }
 
 .asignar-search-row {
     display: flex;
     align-items: center;
-    gap: 12px;
-    width: 639px;
-    margin-bottom: 10px;
+    gap: 9px;
+    width: 479px;
+    margin-bottom: 8px;
 }
 
 .asignar-search-row .search-wrap {
@@ -602,24 +612,24 @@ html {
 
 .asignar-search-row .search-wrap .search-icon {
     position: absolute;
-    left: 14px;
+    left: 11px;
     color: #A3A3A3;
-    font-size: 14px;
+    font-size: 11px;
     pointer-events: none;
 }
 
 .asignar-search-input.ui-inputfield {
     width: 100% !important;
-    height: 48px !important;
+    height: 36px !important;
     box-sizing: border-box;
-    border: 3px solid #A3F7B5 !important;
+    border: 2px solid #A3F7B5 !important;
     background-color: #FFFFFF !important;
-    padding-left: 40px !important;
+    padding-left: 30px !important;
 }
 
 .asignar-search-btn.ui-button {
-    width: 110px !important;
-    height: 48px !important;
+    width: 83px !important;
+    height: 36px !important;
     flex-shrink: 0;
     font-family: 'Martel Sans', sans-serif;
     font-weight: 600;
@@ -631,21 +641,21 @@ html {
 
 .asignar-selector {
     width: 100%;
-    height: 48px;
+    height: 36px;
     box-sizing: border-box;
     background-color: #1E1E1E;
-    border-radius: 6px;
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 16px;
-    margin-bottom: 24px;
+    padding: 0 12px;
+    margin-bottom: 18px;
 }
 
 .asignar-selector span {
     font-family: 'Martel Sans', sans-serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 12px;
     color: #FFFFFF;
 }
 
@@ -657,49 +667,49 @@ html {
 .asignar-grupo-row {
     display: flex;
     align-items: center;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
 }
 
 .asignar-grupo-row .asignar-grupo-label {
-    width: 180px;
+    width: 135px;
     flex-shrink: 0;
     font-family: 'Martel Sans', sans-serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 12px;
     color: #1E1E1E;
 }
 
 .asignar-grupo-input.ui-inputfield {
-    width: 425px !important;
-    height: 48px !important;
+    width: 319px !important;
+    height: 36px !important;
     box-sizing: border-box;
-    border: 3px solid #A3F7B5 !important;
+    border: 2px solid #A3F7B5 !important;
     background-color: #FFFFFF !important;
 }
 
 .horarios-table .cell-chevron {
-    margin-left: 8px;
+    margin-left: 6px;
     color: #40C9A2;
-    font-size: 11px;
+    font-size: 8px;
 }
 
 .asignar-footer {
     display: flex;
     justify-content: flex-end;
-    gap: 12px;
+    gap: 9px;
     width: 100%;
 }
 
 .eliminar-dialog.ui-dialog {
-    width: 631px !important;
+    width: 473px !important;
     border: none !important;
-    border-radius: 16px !important;
+    border-radius: 12px !important;
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18) !important;
 }
 
 .eliminar-dialog .ui-dialog-content {
-    height: 456px !important;
+    height: 342px !important;
     box-sizing: border-box;
     padding: 0 !important;
 }
@@ -707,7 +717,7 @@ html {
 .eliminar-body {
     height: 100%;
     box-sizing: border-box;
-    padding: 40px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -716,54 +726,54 @@ html {
 }
 
 .eliminar-icon {
-    font-size: 36px;
+    font-size: 27px;
     color: #B2454F;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .eliminar-title {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 800;
     color: #1E1E1E;
-    margin: 0 0 20px;
+    margin: 0 0 15px;
 }
 
 .eliminar-text {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     color: #1E1E1E;
     line-height: 1.6;
-    margin: 0 0 16px;
+    margin: 0 0 12px;
 }
 
 .eliminar-note {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     color: rgba(30, 30, 30, 0.7);
     line-height: 1.5;
-    margin: 0 0 50px;
+    margin: 0 0 38px;
 }
 
 .eliminar-footer {
     display: flex;
-    gap: 16px;
+    gap: 12px;
 }
 
 .eliminar-footer .ui-button {
-    width: 140px !important;
-    height: 40px !important;
+    width: 105px !important;
+    height: 30px !important;
 }
 
 .detalle-ua-dialog.ui-dialog {
-    width: 693px !important;
-    --dlg-h: min(886px, 90vh);
+    width: 520px !important;
+    --dlg-h: min(665px, 90vh);
 }
 
 .detalle-horas {
     display: flex;
-    gap: 40px;
-    margin-bottom: 8px;
+    gap: 30px;
+    margin-bottom: 6px;
 }
 
 .detalle-horas-col {
@@ -773,31 +783,31 @@ html {
 
 .horas-label {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     color: #8A8A8A;
-    margin: 0 0 8px;
+    margin: 0 0 6px;
 }
 
 .horas-value {
     font-family: 'Martel Sans', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 800;
     color: #1E1E1E;
     margin: 0;
 }
 
 .modificar-ua-dialog.ui-dialog {
-    width: 999px !important;
+    width: 749px !important;
     border: none !important;
-    border-radius: 16px !important;
+    border-radius: 12px !important;
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18) !important;
 }
 
 .modificar-ua-dialog .ui-dialog-content {
-    height: 530px !important;
+    height: 398px !important;
     box-sizing: border-box;
-    padding: 32px !important;
+    padding: 24px !important;
 }
 
 .modificar-ua-dialog .form-actions {
@@ -805,7 +815,7 @@ html {
 }
 
 .modificar-ua-dialog .btn-primary.ui-button {
-    height: 40px !important;
+    height: 30px !important;
 }
 
 .modificar-ua-body {
@@ -815,21 +825,25 @@ html {
 }
 
 .ui-inputfield {
-    border-radius: 10px !important;
+    border-radius: 8px !important;
 }
 
 .ui-selectonemenu {
-    border-radius: 10px !important;
+    border-radius: 8px !important;
 }
 
 .ui-button {
-    border-radius: 10px !important;
+    border-radius: 8px !important;
 }
 
 .ui-button {
     background-color: #664147 !important;
     border-color: #664147 !important;
     color: #FFFFFF !important;
+    font-size: 16px !important;
+    font-family: 'Martel Sans', sans-serif !important;
+    font-weight: 600 !important;
+    box-sizing: border-box !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -840,4 +854,58 @@ html {
     padding: 0 !important;
     display: inline-block !important;
     line-height: normal !important;
+}
+
+.content-card-auto {
+    height: auto;
+    min-height: 400px;
+}
+
+:root {
+    --p-primary-color: #664147;
+    --p-primary-hover-color: #543539;
+    --p-highlight-bg: #664147;
+}
+
+.horario-time-input {
+    width: 70px !important;
+    display: inline-block;
+}
+
+.horario-time-input .ui-inputfield {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.col-actions {
+    white-space: nowrap;
+}
+
+.horarios-table {
+    font-size: 11px;
+}
+
+.query-table td.col-actions {
+    padding-right: 24px !important;
+}
+
+.asignar-footer .btn-table-wine.ui-button {
+    font-size: 16px !important;
+}
+
+.detalle-table thead th,
+.detalle-table tbody td {
+    border: none !important;
+}
+
+.asignar-label + .ui-selectonemenu {
+    margin-bottom: 20px;
+}
+
+.query-table tbody td:last-child {
+    padding-right: 24px !important;
+}
+
+.btn-secondary.ui-button {
+    margin-top: 20px;
 }
