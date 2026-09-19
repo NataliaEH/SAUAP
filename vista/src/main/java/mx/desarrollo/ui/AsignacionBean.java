@@ -38,35 +38,20 @@ public class AsignacionBean implements Serializable{
     }
 
     public void asignar(){
-        //VALIDAR HORAS
-        for(Horario h: horarios){
-            long horas = ChronoUnit.HOURS.between(h.getHoraInicio(), h.getHoraFinal());
-            if(horas<=0){
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de horas:", "La hora de inicio debe ser antes que la hora final."));
-                return;
-            }
-
-            switch(h.getTipoClase()){
-                case "Clase":   if(horas>getUA(idUA).getHorasClase()){
-                                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de horas:", "El intervalo de horas es mayor del establecido en la unidad de aprendizaje."));
-                                    return;
-                                }
-                    break;
-                case "Taller":  if(horas>getUA(idUA).getHorasTaller()){
-                                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de horas:", "El intervalo de horas es mayor del establecido en la unidad de aprendizaje."));
-                                    return;
-                                }
-                    break;
-                case "Laboratorio": if(horas>getUA(idUA).getHorasLaboratorio()){
-                                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de horas:", "El intervalo de horas es mayor del establecido en la unidad de aprendizaje."));
-                                        return;
-                                    }
-                    break;
-                default: return;
-            }
+        if(horarios.isEmpty()){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de horario:", "Debe ingresarse por lo menos un horario."));
+            return;
         }
+
+        int hClase = 0;
+        int hTaller = 0;
+        int hLab = 0;
         //VALIDAR TRASLAPE CON MISMA ASIGNACION
         for(int i=0;i<horarios.toArray().length;i++){
+            if(horarios.get(i).getHoraInicio() == null || horarios.get(i).getHoraFinal() == null){
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de horario:", "Debe ingresar hora de inicio y hora de finalización."));
+                return;
+            }
             for(int j=0;j<horarios.toArray().length;j++){
                 if(j!=i && (horarios.get(i).getDia().equalsIgnoreCase(horarios.get(j).getDia()) && (horarios.get(i).getHoraInicio().isBefore(horarios.get(j).getHoraFinal())
                         && horarios.get(i).getHoraFinal().isAfter(horarios.get(j).getHoraInicio())))){
@@ -78,6 +63,23 @@ public class AsignacionBean implements Serializable{
         //VALIDAR HORARIO
         if(getAsignaciones()!=null && !getAsignaciones().isEmpty()){
             for(Asignacion a:getAsignaciones()){
+                //Obtener total de horas ya asignadas
+                if(a.getUnidadAprendizaje().getId()==idUA && Objects.equals(a.getGrupo(), asignacion.getGrupo())){
+                    for(Horario h: a.getHorarios()){
+                        long horas = ChronoUnit.HOURS.between(h.getHoraInicio(), h.getHoraFinal());
+
+                        switch(h.getTipoClase()){
+                            case "Clase": hClase = Math.toIntExact(hClase + horas);
+                                break;
+                            case "Taller":  hTaller = Math.toIntExact(hTaller + horas);
+                                break;
+                            case "Laboratorio": hLab = Math.toIntExact(hLab + horas);
+                                break;
+                            default: return;
+                        }
+                    }
+                }
+                //Validacion de traslapes
                 if(a.getProfesor().getId()==idProfesor && a.getUnidadAprendizaje().getId()==idUA && Objects.equals(a.getGrupo(), asignacion.getGrupo())){
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de registro:", "Ya existe una asignación de este profesor a esta UA del mismo grupo."));
                     return;
@@ -106,6 +108,34 @@ public class AsignacionBean implements Serializable{
                 }
             }
         }
+        //VALIDAR HORAS
+        for(Horario h: horarios){
+            long horas = ChronoUnit.HOURS.between(h.getHoraInicio(), h.getHoraFinal());
+            if(horas<=0){
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de horas:", "La hora de inicio debe ser antes que la hora final."));
+                return;
+            }
+
+            switch(h.getTipoClase()){
+                case "Clase":   if(horas > (getUA(idUA).getHorasClase() - hClase)){
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de horas:", "El intervalo de horas es mayor del establecido en la unidad de aprendizaje."));
+                    return;
+                }
+                    break;
+                case "Taller":  if(horas > (getUA(idUA).getHorasTaller() - hTaller)){
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de horas:", "El intervalo de horas es mayor del establecido en la unidad de aprendizaje."));
+                    return;
+                }
+                    break;
+                case "Laboratorio": if(horas > (getUA(idUA).getHorasLaboratorio() - hLab)){
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de horas:", "El intervalo de horas es mayor del establecido en la unidad de aprendizaje."));
+                    return;
+                }
+                    break;
+                default: return;
+            }
+        }
+
 
         boolean asignado = asignacionHelper.asignar(idUA, idProfesor, asignacion.getGrupo(), horarios);
         if(asignado){
