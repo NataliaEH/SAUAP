@@ -65,6 +65,16 @@ public class AsignacionBean implements Serializable{
                 default: return;
             }
         }
+        //VALIDAR TRASLAPE CON MISMA ASIGNACION
+        for(int i=0;i<horarios.toArray().length;i++){
+            for(int j=0;j<horarios.toArray().length;j++){
+                if(j!=i && (horarios.get(i).getDia().equalsIgnoreCase(horarios.get(j).getDia()) && (horarios.get(i).getHoraInicio().isBefore(horarios.get(j).getHoraFinal())
+                        && horarios.get(i).getHoraFinal().isAfter(horarios.get(j).getHoraInicio())))){
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de registro:", "Horarios repetidos."));
+                    return;
+                }
+            }
+        }
         //VALIDAR HORARIO
         if(getAsignaciones()!=null && !getAsignaciones().isEmpty()){
             for(Asignacion a:getAsignaciones()){
