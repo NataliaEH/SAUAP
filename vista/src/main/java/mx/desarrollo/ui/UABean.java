@@ -11,6 +11,7 @@ import mx.desarrollo.helper.UAHelper;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 @Named("uaUI")
 @ViewScoped
@@ -28,7 +29,12 @@ public class UABean implements Serializable{
     }
 
     public void registrar(){
-        if(uas!=null){
+        if (!Pattern.matches("(?=.*[A-Za-z])[A-Za-záéíóúÁÉÍÓÚñÑ\\s-0-9]",ua.getNombre())) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de formato:", "No se permiten carácteres especiales."));
+            return;
+        }
+
+        if(getUas()!=null){
             for(UnidadAprendizaje u:uas){
                 if(u.getNombre().equalsIgnoreCase(ua.getNombre())){
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de registro:", "UA ya existe en el catálogo."));
@@ -47,7 +53,10 @@ public class UABean implements Serializable{
         }
     }
     public void modificar(UnidadAprendizaje ua){
-        System.out.println("ENTRANDO BEAN");
+        if (!Pattern.matches("(?=.*[A-Za-z])[A-Za-záéíóúÁÉÍÓÚñÑ\\s-0-9]",ua.getNombre())) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de formato:", "No se permiten carácteres especiales."));
+            return;
+        }
 
         if(getUas()!=null){
             for(UnidadAprendizaje u:uas){

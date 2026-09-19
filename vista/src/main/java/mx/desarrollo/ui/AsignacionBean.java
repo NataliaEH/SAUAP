@@ -69,6 +69,7 @@ public class AsignacionBean implements Serializable{
         boolean asignado = asignacionHelper.asignar(idUA, idProfesor, asignacion.getGrupo(), horarios);
         if(asignado){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Asignación registrada:", "La asignación se agregó al catálogo."));
+            asignacion = new Asignacion();
         }else{
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de registro:", "Hubo un error al hacer el registro en la BD."));
         }

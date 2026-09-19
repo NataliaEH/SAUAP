@@ -12,6 +12,7 @@ import mx.desarrollo.helper.ProfesorHelper;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
+import java.util.regex.Pattern;
 
 @Named("profesorUI")
 @ViewScoped
@@ -28,8 +29,13 @@ public class ProfesorBean implements Serializable{
     }
 
     public void registrar(){
+        if (!Pattern.matches("[A-Za-záéíóúÁÉÍÓÚñÑ\\s]+",profesor.getNombre()) || !Pattern.matches("[A-Za-záéíóúÁÉÍÓÚñÑ\\s]+",profesor.getApellidoPat()) || !Pattern.matches("[A-Za-záéíóúÁÉÍÓÚñÑ\\s]+",profesor.getApellidoMat())) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de formato:", "No se permiten números ni carácteres especiales."));
+            return;
+        }
+
         for(Profesor p: consultar()){
-            if(p.getRfc().equalsIgnoreCase(profesor.getRfc()) || p.getNombre().equalsIgnoreCase(profesor.getNombre())){
+            if(p.getRfc().equalsIgnoreCase(profesor.getRfc()) || (p.getNombre().equalsIgnoreCase(profesor.getNombre()) && p.getApellidoPat().equalsIgnoreCase(profesor.getApellidoPat()) && p.getApellidoMat().equalsIgnoreCase(profesor.getApellidoMat()))){
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de registro:", "Profesor ya existe en el catálogo."));
                 return;
             }
