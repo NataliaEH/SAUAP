@@ -20,7 +20,7 @@
 
             <p:messages id="messages" showDetail="true" closable="true" globalOnly="false" />
 
-            <div class="content-card">
+            <div class="content-card content-card-auto">
 
                 <h3 class="card-title">Datos de la asignación</h3>
                 <p class="card-subtitle">Todos los campos son obligatorios</p>
@@ -61,7 +61,7 @@
                         <p:dataTable id="horariosTable" value="#{asignacionUI.horarios}" var="h" emptyMessage="Sin horarios agregados"
                                      styleClass="query-table detalle-table horarios-table">
                             <p:column headerText="Día">
-                                <p:selectOneMenu value="#{h.dia}">
+                                <p:selectOneMenu value="#{h.dia}" appendTo="@(body)">
                                     <f:selectItem itemLabel="Lunes" itemValue="Lunes"/>
                                     <f:selectItem itemLabel="Martes" itemValue="Martes"/>
                                     <f:selectItem itemLabel="Miércoles" itemValue="Miércoles"/>
@@ -73,15 +73,19 @@
                             <p:column headerText="Hora inicio">
                                 <p:datePicker value="#{h.horaInicio}"
                                               timeOnly="true"
-                                              pattern="HH:mm"/>
+                                              pattern="HH:mm"
+                                              appendTo="@(body)"
+                                              styleClass="horario-time-input"/>
                             </p:column>
                             <p:column headerText="Hora final">
                                 <p:datePicker value="#{h.horaFinal}"
                                               timeOnly="true"
-                                              pattern="HH:mm"/>
+                                              pattern="HH:mm"
+                                              appendTo="@(body)"
+                                              styleClass="horario-time-input"/>
                             </p:column>
                             <p:column headerText="Tipo de Clase">
-                                <p:selectOneMenu value="#{h.tipoClase}">
+                                <p:selectOneMenu value="#{h.tipoClase}" appendTo="@(body)">
                                     <f:selectItem itemLabel="Clase" itemValue="Clase"/>
                                     <f:selectItem itemLabel="Taller" itemValue="Taller"/>
                                     <f:selectItem itemLabel="Laboratorio" itemValue="Laboratorio"/>
