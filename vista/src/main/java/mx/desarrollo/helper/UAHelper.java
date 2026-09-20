@@ -17,7 +17,9 @@ public class UAHelper implements Serializable {
 
     public boolean eliminar(int id) {
         for(Asignacion a:ServiceFacadeLocator.getInstanceFacadeAsignacion().listar()){
-            ServiceFacadeLocator.getInstanceFacadeAsignacion().eliminar(a.getId());
+            if(a.getUnidadAprendizaje().getId()==id){
+                ServiceFacadeLocator.getInstanceFacadeAsignacion().eliminar(a.getId());
+            }
         }
         return ServiceFacadeLocator.getInstanceFacadeUA().eliminar(id);
     }
